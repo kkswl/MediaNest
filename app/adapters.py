@@ -2,6 +2,7 @@ import math
 import os
 import re
 import time
+from contextlib import contextmanager
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -54,6 +55,30 @@ class P115Reader:
     def __init__(self, settings):
         self.settings = settings
 
+    @contextmanager
+    def request_slot(self):
+        """Hold the lock through response completion, not just the start timestamp."""
+        if not self.settings.live_enabled:
+            raise ReadError("disabled", "真实 115 读取未授权启用")
+        try:
+            with local_file_lock(Path(self.settings.state_dir) / "115-inflight.lock", timeout=30):
+                self.throttle()
+                yield
+        except (OSError, TimeoutError):
+            raise ReadError("timeout", "请求或请求槽位超时，未判资源不存在") from None
+
+    def public_snap(self, payload):
+        # One synchronous HTTP request, no implicit client login/retry/redirect.
+        with httpx.Client(timeout=20, follow_redirects=False, trust_env=True) as client:
+            response = client.get("https://webapi.115.com/share/snap", params=payload)
+            if response.status_code == 429:
+                raise ReadError("rate_limited", "公开分享接口限流")
+            if response.status_code in (401, 403):
+                raise ReadError("auth", "公开目录访问需要认证或权限确认")
+            if response.status_code != 200:
+                raise ReadError("uncertain", "公开分享接口响应未确认")
+            return response.json()
+
     def throttle(self):
         """Global spacing covers every account and every request, including NFO reads.
 
@@ -95,7 +120,7 @@ class P115Reader:
         if not self.settings.live_enabled:
             raise ReadError("disabled", "真实 115 读取未授权启用")
         if not cookie:
-            raise ReadError("auth", "需要管理员配置私有 115 凭据")
+            raise ReadError("auth", "该操作需要管理员配置私有 115 凭据")
         from p115client import P115Client
         # Fixed 0.0.9.7.2 has no check_for_relogin parameter. A non-None cookie
         # initializes only; never construct with None (which starts QR login).
@@ -105,7 +130,8 @@ class P115Reader:
         if not isinstance(data, dict):
             raise ReadError("uncertain", "响应结构异常")
         if data.get("state") not in (True, 1):
-            code = str(data.get("errno", data.get("errNo", "")))[:30]
+            code = str(data.get("errno", data.get("errNo", "")))
+            code = code[:30] if code.isdigit() else "unknown"
             message = str(data.get("error") or data.get("message") or data.get("msg") or "").lower()
             # PanSou check115 is a design reference, but its broad `bad` fallback
             # would hide rate-limit/auth failures. Use only narrow explicit evidence.
@@ -135,15 +161,18 @@ class P115Reader:
 
     def list_page(self, source, directory, offset, limit, cookie=""):
         try:
-            client = self.client(cookie)
             if not str(directory).isdigit() or offset < 0 or not 1 <= limit <= 10000:
                 raise ReadError("uncertain", "目录分页请求参数异常")
-            self.throttle()
-            raw = client.share_snap({"share_code": source.code, "receive_code": source.access_code,
-                                     "cid": directory, "offset": offset, "limit": limit}, timeout=20)
+            payload = {"share_code": source.code, "receive_code": source.access_code,
+                       "cid": directory, "offset": offset, "limit": limit}
+            with self.request_slot():
+                if cookie:
+                    raw = self.client(cookie).share_snap(payload, timeout=20)
+                else:
+                    raw = self.public_snap(payload)
             data = self.response(raw)
             if not isinstance(data.get("list"), list) or "count" not in data:
-                raise ReadError("uncertain", "缺少完整分页信息")
+                raise ReadError("incomplete", "缺少完整分页信息")
             output = []
             for x in data["list"]:
                 if not isinstance(x, dict):
@@ -168,12 +197,14 @@ class P115Reader:
             if (total < 0 or len(output) > limit or (not output and offset < total)
                     or (output and offset + len(output) > total)
                     or len({x["id"] for x in output}) != len(output)):
-                raise ReadError("uncertain", "分页数据不完整或总数异常")
+                raise ReadError("incomplete", "分页数据不完整或总数异常")
             return output, total
         except ReadError:
             raise
         except (httpx.TimeoutException, TimeoutError):
             raise ReadError("timeout", "115 请求超时，未判资源不存在") from None
+        except httpx.TransportError:
+            raise ReadError("network_error", "115 网络异常，未判资源不存在") from None
         except Exception as e:
             # Never leak exception text containing URLs, cookies or request headers.
             raise ReadError("uncertain", f"115 请求未确认（{type(e).__name__}）") from None
@@ -183,9 +214,9 @@ class P115Reader:
             raise ReadError("oversize", "仅允许体积受限的 NFO")
         try:
             client = self.client(cookie)
-            self.throttle()
-            link = client.share_download_url({"share_code": source.code, "receive_code": source.access_code,
-                                              "file_id": node.remote_id}, timeout=20)
+            with self.request_slot():
+                link = client.share_download_url({"share_code": source.code, "receive_code": source.access_code,
+                                                  "file_id": node.remote_id}, timeout=20)
             # A changed/misbound download result must not turn a small sidecar read
             # into reading unrelated or large content. P115URL exposes these fields.
             if (str(getattr(link, "id", "")) != str(node.remote_id)
@@ -199,8 +230,7 @@ class P115Reader:
                     or p.username or p.password or p.port not in (None, 443) or p.fragment
                     or re.search(r"[\s\x00-\x1f\\]", address)):
                 raise ReadError("uncertain", "NFO 地址域名未在只读白名单内")
-            self.throttle()
-            with httpx.stream("GET", address, headers={"Accept-Encoding": "identity"},
+            with self.request_slot(), httpx.stream("GET", address, headers={"Accept-Encoding": "identity"},
                               timeout=20, follow_redirects=False, trust_env=False) as r:
                 if r.status_code != 200:
                     raise ReadError("uncertain", "NFO 读取失败")
@@ -239,7 +269,26 @@ class Readers:
         return cipher(self.secret).decrypt(source.credential.encode()).decode()
 
     def page(self, source, directory, offset, limit):
-        return self.reader(source).list_page(source, directory, offset, limit, self.cookie(source))
+        try:
+            cookie = self.cookie(source)
+            result = self.reader(source).list_page(source, directory, offset, limit, cookie)
+        except ReadError as exc:
+            access_failure(source, exc.kind)
+            raise
+        if source.adapter == "live":
+            source.access_status = "credential_listing" if cookie else "public_listing"
+        return result
 
     def nfo(self, source, node):
-        return self.reader(source).read_nfo(source, node, self.settings.nfo_limit, self.cookie(source))
+        try:
+            return self.reader(source).read_nfo(source, node, self.settings.nfo_limit, self.cookie(source))
+        except ReadError as exc:
+            access_failure(source, exc.kind)
+            raise
+
+
+def access_failure(source, kind):
+    if source.adapter == "live":
+        source.access_status = (("auth_failed" if source.credential else "credential_required")
+                                if kind in ("auth", "auth_failed") else
+                                "rate_limited" if kind == "rate_limited" else "uncertain")

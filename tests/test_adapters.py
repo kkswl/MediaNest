@@ -93,15 +93,33 @@ def test_live_unknown_response_is_never_missing():
     {"list": [{"fid": "1", "cid": "0", "n": "../file.mkv", "s": 1}], "count": 1},
     {"list": [{"fid": "1", "cid": "0", "n": "file.mkv", "s": 1}] * 2, "count": 2},
 ])
-def test_live_pagination_malformed_never_proves_absence(monkeypatch, data):
-    reader = P115Reader(Settings(secret="x" * 40, live_enabled=True))
+def test_live_pagination_malformed_never_proves_absence(monkeypatch, data, tmp_path):
+    reader = P115Reader(Settings(secret="x" * 40, live_enabled=True, state_dir=str(tmp_path)))
     client = SimpleNamespace(share_snap=lambda *args, **kwargs: {"state": True, "data": data})
     monkeypatch.setattr(reader, "client", lambda cookie: client)
     monkeypatch.setattr(reader, "throttle", lambda: None)
     source = SimpleNamespace(code="synthetic", access_code="aaaa")
     with pytest.raises(ReadError) as caught:
         reader.list_page(source, "0", 0, 2, "synthetic")
-    assert caught.value.kind == "uncertain"
+    assert caught.value.kind in ("uncertain", "incomplete")
+
+
+def test_live_public_share_listing_allows_anonymous_client(monkeypatch, tmp_path):
+    reader = P115Reader(Settings(secret="x" * 40, live_enabled=True, state_dir=str(tmp_path)))
+    captured = []
+
+    def public_snap(payload, **kwargs):
+        captured.append((payload, kwargs))
+        return {"state": True, "data": {"list": [
+            {"fid": "1", "cid": "0", "n": "公开.mkv", "s": 10}
+        ], "count": 1, "shareinfo": {"share_state": 1, "forbid_reason": ""}}}
+
+    monkeypatch.setattr(reader, "public_snap", public_snap)
+    monkeypatch.setattr(reader, "throttle", lambda: None)
+    source = SimpleNamespace(code="public", access_code="aaaa")
+    items, total = reader.list_page(source, "0", 0, 2)
+    assert total == 1 and items[0]["name"] == "公开.mkv"
+    assert captured[0][0]["share_code"] == "public"
 
 
 def test_live_response_distinguishes_explicit_missing_and_auth():

@@ -53,9 +53,11 @@ class Settings:
     state_dir: str = field(default_factory=lambda: os.getenv("STATE_DIR", "data"))
     public_image_hosts: tuple = field(default_factory=lambda: tuple(
         h.strip().lower() for h in os.getenv("PUBLIC_SOURCE_IMAGE_HOSTS", "").split(",") if h.strip()))
-    failure_threshold: int = field(default_factory=lambda: max(2, int(os.getenv("FAILURE_THRESHOLD", "3"))))
+    failure_threshold: int = field(default_factory=lambda: max(3, int(os.getenv("FAILURE_THRESHOLD", "3"))))
     page_size: int = field(default_factory=lambda: max(1, min(500, int(os.getenv("SCAN_PAGE_SIZE", "50")))))
     interval: float = field(default_factory=lambda: max(0.1, float(os.getenv("REQUEST_INTERVAL", "2"))))
+    # Safe live default: even legacy full jobs are restricted at the worker boundary.
+    live_root_only: bool = field(default_factory=lambda: os.getenv("LIVE_ROOT_ONLY", "yes") != "no")
     health_ttl: float = 3600
     recheck_delay: float = 60
     nfo_limit: int = 262144

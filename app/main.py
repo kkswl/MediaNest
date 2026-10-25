@@ -34,6 +34,8 @@ from .db import (
 )
 from .health import enqueue_check
 from .metadata import update_links
+from .posters import image_url, select_poster
+from .scan_scope import start_directory_scan
 from .security import cipher, digest, parse_import, password_hash, password_valid, rate_limit, safe_url
 from .worker import Worker, start_scan
 
@@ -60,6 +62,7 @@ class ImportItem(StrictModel):
 class ImportBatch(StrictModel):
     items: list[ImportItem] = Field(min_length=1, max_length=100)
     adapter: Literal["mock", "live"] = "mock"
+    scan_mode: Literal["full", "root_preview"] | None = None
 
 
 class SourcePatch(StrictModel):
@@ -113,7 +116,7 @@ class Recheck(StrictModel):
 
 def source_dict(source, include_access=True):
     fields = ("id", "owner_id", "code", "url", "title", "adapter", "enabled", "health", "failures",
-              "checked_at", "last_scan")
+              "checked_at", "last_scan", "access_status")
     result = {key: getattr(source, key) for key in fields}
     if include_access:
         result["access_code"] = source.access_code
@@ -271,11 +274,16 @@ def create_app(settings=None):
 
     @app.get("/api/stats")
     def stats(db=transaction):
+        published = public_works().with_only_columns(Work.id)
+        variants = valid_variants().where(Variant.work_id.in_(published))
         return {"works": db.scalar(select(func.count()).select_from(public_works().subquery())),
-                "variants": db.scalar(select(func.count()).select_from(valid_variants().subquery())),
-                "sources": db.scalar(select(func.count(Source.id)).where(Source.enabled.is_(True))),
-                "review": db.scalar(select(func.count(Work.id)).where(Work.status == "review", Work.visible.is_(True))),
-                "mock": not settings.live_enabled, "live_enabled": settings.live_enabled}
+                "variants": db.scalar(select(func.count()).select_from(variants.subquery())),
+                "sources": db.scalar(select(func.count(Source.id)).where(
+                    Source.id.in_(variants.with_only_columns(Variant.source_id)))),
+                # Keep the legacy response key without exposing private queue counts.
+                "review": 0,
+                "mock": not settings.live_enabled, "live_enabled": settings.live_enabled,
+                "live_root_only": settings.live_root_only}
 
     @app.get("/api/catalog")
     def catalog(request: Request, q: str = Query("", max_length=200), category: str = Query("", max_length=30),
@@ -295,6 +303,9 @@ def create_app(settings=None):
             for v in db.scalars(valid_variants().where(Variant.work_id == work.id)
                                 .order_by(Node.checked_at, Variant.id).limit(2)).all():
                 source, node = db.get(Source, v.source_id), db.get(Node, v.node_id)
+                if source.adapter == "live":
+                    # Explicit previews do not authorize background network reads from search.
+                    continue
                 enqueue_check(db, source, None, settings)
                 enqueue_check(db, source, node, settings)
         return {"items": [serialize_work(db, w) for w in works], "total": total, "page": page, "page_size": page_size}
@@ -330,7 +341,10 @@ def create_app(settings=None):
         if any(validated.get(k) is None for k in ("title", "category", "status", "visible") if k in validated):
             raise ValueError("片名、类别、状态及可见性不能设为空")
         if "poster" in validated:
-            validated["poster"] = safe_url(validated["poster"] or "", image=True)
+            value = validated["poster"] or ""
+            validated["poster"] = image_url(value, settings.public_image_hosts)
+            if value and not validated["poster"]:
+                raise ValueError("海报必须使用无凭据参数的 HTTPS 白名单网址")
         if "tmdb_url" in validated:
             validated["tmdb_url"] = safe_url(validated["tmdb_url"] or "", tmdb=True)
         if "path" in validated:
@@ -360,7 +374,8 @@ def create_app(settings=None):
                 info[key] = value
             provenance[key] = "管理员审核"
             locked.add(key)
-        work.info, work.provenance, work.locked, work.updated_at = info, provenance, sorted(locked), time.time()
+        work.info = select_poster(info, locked, settings.public_image_hosts)
+        work.provenance, work.locked, work.updated_at = provenance, sorted(locked), time.time()
         update_links(db, work)
 
     @app.post("/api/suggestions", status_code=201)
@@ -420,7 +435,9 @@ def create_app(settings=None):
                 source.url = parsed["url"]
                 if item.title:
                     source.title = item.title
-            job = start_scan(db, source)
+            if body.adapter == "live" and settings.live_root_only and body.scan_mode == "full":
+                raise ValueError("当前真实读取只允许根目录限页预览")
+            job = start_scan(db, source, body.scan_mode)
             result.append(source_dict(source) | {"job_id": job.id})
             audit(db, user, "import", source.id, after={"job_id": job.id, "adapter": source.adapter})
         return {"items": result}
@@ -444,11 +461,28 @@ def create_app(settings=None):
         job = start_scan(db, source)
         return {"job_id": job.id}
 
+    @app.post("/api/admin/sources/{source_id}/directories/{node_id}/scan", status_code=201)
+    def scan_directory(source_id: int, node_id: int, user=Depends(admin), db=transaction):
+        source = own_source(db, source_id, user)
+        if not source.enabled:
+            raise HTTPException(409, "来源已停用")
+        if source.adapter == "live" and not settings.live_enabled:
+            raise HTTPException(403, "真实目录读取尚未授权")
+        job = start_directory_scan(db, source, node_id)
+        audit(db, user, "directory.scan", job.id, after={"source_id": source.id, "node_id": node_id})
+        return {"job_id": job.id, "scan_mode": job.scan_mode, "scope_path": job.scope_path,
+                "request_limit": 2, "recursive": False}
+
     @app.get("/api/admin/sources/{source_id}/nodes")
     def nodes(source_id: int, parent: str = "0", page: int = Query(1, ge=1), refresh: bool = False,
               user=Depends(admin), db=transaction):
         source = own_source(db, source_id, user)
         scan_pending = False
+        if source.adapter == "live":
+            if refresh and parent != "0":
+                raise HTTPException(409, "真实验证只允许读取根目录，不创建子目录任务")
+            # Opening a tree must not silently create a new live scan after a preview ended.
+            refresh = False
         if refresh:
             existing = db.scalar(select(Node.id).where(Node.source_id == source_id,
                                                         Node.parent_remote_id == parent))
@@ -456,7 +490,8 @@ def create_app(settings=None):
                 active = db.scalar(select(Job).where(Job.source_id == source_id,
                                                      Job.status.in_(["queued", "running", "paused"])))
                 if active is None:
-                    active = Job(source_id=source.id, owner_id=user.id)
+                    active = Job(source_id=source.id, owner_id=user.id,
+                                 scan_mode="root_preview" if source.adapter == "live" else "full")
                     db.add(active)
                     db.flush()
                 if parent == "0":
@@ -490,7 +525,17 @@ def create_app(settings=None):
             counts = dict(db.execute(select(Task.status, func.count()).where(Task.job_id == job.id).group_by(Task.status)).all())
             source = db.get(Source, job.source_id)
             failed = db.scalars(select(Task).where(Task.job_id == job.id, Task.status == "failed").limit(20)).all()
+            root_only = app.state.worker.bounded(source, job)
+            scan_tasks = db.scalars(select(Task).where(Task.job_id == job.id, Task.kind == "scan")).all()
             output.append({"id": job.id, "source_id": job.source_id, "title": source.title, "status": job.status,
+                           "scan_mode": ("directory_preview" if job.scan_mode == "directory_preview" else
+                                         "root_preview" if root_only else job.scan_mode),
+                           "scope_node_id": job.scope_node_id, "scope_remote_id": job.scope_remote_id,
+                           "scope_path": job.scope_path, "recursive": not root_only,
+                           "pages_read": job.pages_read, "nodes_read": job.nodes_read,
+                           "request_limit": 2 if root_only else None,
+                           "scan_requests": max(job.scan_requests, sum(int(t.payload.get("requests", 0)) for t in scan_tasks)),
+                           "truncated": any(t.payload.get("truncated", False) for t in scan_tasks),
                            "created_at": job.created_at, "finished_at": job.finished_at,
                            "total": sum(counts.values()), "done": counts.get("done", 0),
                            "failed": counts.get("failed", 0), "queued": counts.get("queued", 0),

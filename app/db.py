@@ -54,6 +54,7 @@ class Source(Base):
     title = Column(String(500), default="")
     adapter = Column(String(20), default="mock", nullable=False)
     credential = Column(Text, default="")
+    access_status = Column(String(40), default="uncertain", nullable=False)
     enabled = Column(Boolean, default=True, nullable=False)
     health = Column(String(30), default="unchecked", nullable=False)
     failures = Column(Integer, default=0, nullable=False)
@@ -142,6 +143,13 @@ class Job(Base):
     source_id = Column(ForeignKey("sources.id"), nullable=False, index=True)
     owner_id = Column(ForeignKey("admins.id"), nullable=False)
     status = Column(String(30), default="queued", nullable=False)
+    scan_mode = Column(String(30), default="full", nullable=False)
+    scope_node_id = Column(Integer, nullable=True)
+    scope_remote_id = Column(String(120), default="0", nullable=False)
+    scope_path = Column(Text, default="", nullable=False)
+    scan_requests = Column(Integer, default=0, nullable=False)
+    pages_read = Column(Integer, default=0, nullable=False)
+    nodes_read = Column(Integer, default=0, nullable=False)
     created_at = Column(Float, default=time.time)
     finished_at = Column(Float, nullable=True)
 
@@ -229,6 +237,14 @@ class Database:
         with self.engine.begin() as connection:
             inspector = inspect(connection)
             additions = {
+                "sources": [("access_status", "VARCHAR(40) NOT NULL DEFAULT 'uncertain'")],
+                "jobs": [("scan_mode", "VARCHAR(30) NOT NULL DEFAULT 'full'"),
+                         ("scope_node_id", "INTEGER"),
+                         ("scope_remote_id", "VARCHAR(120) NOT NULL DEFAULT '0'"),
+                         ("scope_path", "TEXT NOT NULL DEFAULT ''"),
+                         ("scan_requests", "INTEGER NOT NULL DEFAULT 0"),
+                         ("pages_read", "INTEGER NOT NULL DEFAULT 0"),
+                         ("nodes_read", "INTEGER NOT NULL DEFAULT 0")],
                 "admins": [("created_at", "FLOAT NOT NULL DEFAULT 0")],
                 "sessions": [
                     ("created_at", "FLOAT NOT NULL DEFAULT 0"),
@@ -242,4 +258,10 @@ class Database:
                         connection.execute(text(f"ALTER TABLE {table} ADD COLUMN {name} {definition}"))
             if connection.execute(text("SELECT 1 FROM schema_migrations WHERE version = 1")).first() is None:
                 connection.execute(text("INSERT INTO schema_migrations (version, applied_at) VALUES (1, :at)"),
+                                   {"at": time.time()})
+            if connection.execute(text("SELECT 1 FROM schema_migrations WHERE version = 2")).first() is None:
+                connection.execute(text("INSERT INTO schema_migrations (version, applied_at) VALUES (2, :at)"),
+                                   {"at": time.time()})
+            if connection.execute(text("SELECT 1 FROM schema_migrations WHERE version = 3")).first() is None:
+                connection.execute(text("INSERT INTO schema_migrations (version, applied_at) VALUES (3, :at)"),
                                    {"at": time.time()})

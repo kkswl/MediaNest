@@ -1,4 +1,10 @@
 import { test, expect, type Page } from "@playwright/test";
+test.beforeEach(async ({ page }) => {
+  await page.route('**/*', (route) => {
+    const host = new URL(route.request().url()).hostname;
+    return host === '127.0.0.1' || host === 'localhost' ? route.fallback() : route.abort();
+  });
+});
 const work = {
   id: 1,
   title: "山海之间",
@@ -21,6 +27,7 @@ const variants = [
     share_url: "https://115.com/s/demo",
     access_code: "1234",
     source_title: "模拟影库",
+    source_access_status: "public_listing",
     health: "ok",
     checked_at: "2026-10-23T00:00:00Z",
     attributes: {
@@ -40,6 +47,7 @@ const variants = [
     share_url: "https://115.com/s/demo2",
     access_code: "5678",
     source_title: "模拟原盘库",
+    source_access_status: "credential_required",
     health: "pending_recheck",
     attributes: { resolution: "1080P", format: "BDMV" },
   },
@@ -88,6 +96,7 @@ async function mock(page: Page, admin = false) {
             adapter: "mock",
             enabled: true,
             has_credential: false,
+            access_status: "public_listing",
             health: "ok",
           },
         ],
@@ -123,6 +132,9 @@ async function mock(page: Page, admin = false) {
             source_id: 1,
             title: "模拟影库",
             status: "paused",
+            scan_mode: "root_preview",
+            scan_requests: 1,
+            request_limit: 2,
             done: 10,
             total: 20,
             failed: 0,
@@ -218,7 +230,7 @@ test("catalog filters and responsive navigation", async ({ page }, testInfo) => 
   await expect(page.getByRole("heading", { name: "山海之间" })).toBeVisible();
   await expect(page.locator('html')).toHaveClass(/dark/);
   await expect(page.locator('.brand-mark .iconify')).toBeVisible();
-  await page.screenshot({path:`artifacts/offline-catalog-${testInfo.project.name}.png`,fullPage:true});
+  await page.screenshot({path:testInfo.outputPath('offline-catalog.png'),fullPage:true});
   await page.getByRole("button", { name: "筛选", exact: true }).click();
   await expect(page.getByLabel("清晰度")).toBeVisible();
   await page.getByLabel("清晰度").selectOption("4K");
@@ -246,6 +258,8 @@ test("detail preserves versions and submits targeted correction", async ({
   await expect(page.getByRole("button", { name: "复制完整路径" })).toHaveCount(
     2,
   );
+  await expect(page.getByText('公开目录', { exact: true })).toBeVisible();
+  await expect(page.getByText('需要账号凭据', { exact: true })).toBeVisible();
   await page.getByRole("button", { name: "提交资料纠错" }).click();
   await page.getByLabel("正确年份").fill("2023");
   const sent = page.waitForRequest(
@@ -268,8 +282,9 @@ test("backend source tree, import preview, and task controls", async ({
     page.getByRole("heading", { name: "模拟影库", exact: true }),
   ).toBeVisible();
   await page.getByRole("button", { name: "查看目录树" }).click();
+  await expect(page.getByText('目录访问：公开目录', { exact: true })).toBeVisible();
   await expect(
-    page.getByRole("button", { name: "山海之间 (2024)" }),
+    page.getByRole("button", { name: "山海之间 (2024)", exact: true }),
   ).toBeVisible();
   await noOverflow(page);
   await page.getByRole("link", { name: "批量导入", exact: true }).click();
@@ -323,6 +338,72 @@ test("moderation, review, health, admins and audits render without overflow", as
     reason: "核对后采纳",
   });
 });
+test("directory indexing requires explicit scope confirmation", async ({ page }, testInfo) => {
+  if (testInfo.project.name === "mobile") await page.setViewportSize({ width: 375, height: 812 });
+  await mock(page, true);
+  const writes: string[] = [];
+  page.on("request", (request) => {
+    if (request.method() === "POST") writes.push(request.url());
+  });
+  await page.goto("/admin/sources");
+  await page.getByRole("button", { name: "查看目录树" }).click();
+  const index = page.getByRole("button", { name: "索引此目录：电影/山海之间 (2024)", exact: true });
+  await expect(index).toBeVisible();
+  expect((await index.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+  expect(writes).toHaveLength(0);
+  await index.click();
+  await expect(page.getByRole("heading", { name: "确认指定子目录索引" })).toBeVisible();
+  await expect(page.getByText("仅索引此目录的直接子项", { exact: false })).toBeVisible();
+  await noOverflow(page);
+  await page.screenshot({ path: testInfo.outputPath("directory-confirmation.png"), fullPage: true });
+  await page.getByRole("button", { name: "取消", exact: true }).click();
+  expect(writes).toHaveLength(0);
+  await index.click();
+  const sent = page.waitForRequest((request) => request.method() === "POST" && request.url().endsWith("/directories/10/scan"));
+  await page.getByRole("button", { name: "确认索引此目录", exact: true }).click();
+  await sent;
+  await expect(page).toHaveURL(/\/admin\/jobs$/);
+  expect(writes.filter(url => url.endsWith("/directories/10/scan"))).toHaveLength(1);
+  await noOverflow(page);
+});
+
+test("bounded job states show scope, counts and truncation honestly", async ({ page }) => {
+  await mock(page, true);
+  await page.route("**/api/admin/jobs", route => route.fulfill({ json: { items: [{
+    id: 2, title: "模拟限定目录", scan_mode: "directory_preview", status: "complete",
+    scope_path: "模拟合集/" + "很长的模拟目录名称".repeat(15), request_limit: 2,
+    scan_requests: 2, pages_read: 2, nodes_read: 4, truncated: true, total: 1, done: 1,
+  }] } }));
+  await page.goto("/admin/jobs");
+  await expect(page.getByText("指定子目录索引（最多两次请求）", { exact: true })).toBeVisible();
+  await expect(page.getByText(/目录请求 2 \/ 2； 已返回 2 页、4 个节点/)).toBeVisible();
+  await expect(page.getByText(/已完成限定范围，不代表整个分享入库/)).toBeVisible();
+  await noOverflow(page);
+  await page.route("**/api/admin/jobs", route => route.fulfill({ json: { items: [{
+    id: 3, title: "模拟失败任务", scan_mode: "directory_preview", status: "partial",
+    scope_path: "模拟目录", request_limit: 2, scan_requests: 2, pages_read: 0, nodes_read: 0,
+    truncated: false, total: 1, done: 0, failed: 1,
+  }] } }));
+  await page.reload();
+  await expect(page.getByText(/部分返回／请求预算耗尽，不代表完整入库/)).toBeVisible();
+  await expect(page.getByText(/已完成限定范围，不代表整个分享入库/)).toHaveCount(0);
+});
+
+test("review queue is private and unchanged automatic poster is not locked", async ({ page }) => {
+  await mock(page, true);
+  await page.goto("/admin/review");
+  await expect(page.getByText("待确认 · 仅后台可见", { exact: true })).toBeVisible();
+  await expect(page.getByText("海报来源：默认占位图 · 未锁定", { exact: true })).toBeVisible();
+  await expect(page.getByText("前台：信息待完善")).toHaveCount(0);
+  await page.getByRole("button", { name: "编辑并确认" }).click();
+  const sent = page.waitForRequest((r) => r.method() === "PATCH" && r.url().endsWith("/admin/works/2"));
+  await page.getByRole("button", { name: "保存并确认", exact: true }).click();
+  const fields = (await sent).postDataJSON();
+  expect(fields.status).toBe("confirmed");
+  expect(fields).not.toHaveProperty("poster");
+  await noOverflow(page);
+});
+
 test("network error is actionable and reduced motion is supported", async ({
   page,
 }) => {

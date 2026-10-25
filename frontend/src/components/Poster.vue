@@ -6,7 +6,7 @@ const failed = ref(false);
 const fallbackFailed = ref(false);
 const primary = computed(() => posterOf(props.work));
 const fallback = computed(() =>
-  safeURL(props.work.info?.tmdb_poster || props.work.info?.fallback_poster),
+  safeURL(props.work.info?.fallback_poster || props.work.info?.tmdb_poster),
 );
 const url = computed(() =>
   !failed.value ? primary.value : !fallbackFailed.value ? fallback.value : "",

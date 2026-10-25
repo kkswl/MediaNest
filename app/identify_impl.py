@@ -4,6 +4,7 @@ from .db import Node,Variant,Work
 from .metadata_parse import SUBTITLE,parse_nfo
 from .inference import infer
 from .metadata_links import update_links,media_nodes
+from .posters import observe_poster
 def identify_directory(db,source,directory,readers,tmdb,media_node_id=None):
  if media_node_id is None:
   for n in db.scalars(media_nodes(source.id,directory)).all():identify_directory(db,source,directory,readers,tmdb,n.id)
@@ -19,12 +20,14 @@ def identify_directory(db,source,directory,readers,tmdb,media_node_id=None):
   except Exception:v={}
   if v.get("nfo_kind")=="episodedetails":ep=v
   elif v.get("title")and not sel:sel=v
- g=infer(node.name,folder.name if folder else"");title=sel.get("title")or ep.get("showtitle")or g["title"];year=sel.get("year")or g["year"];cat=sel.get("category")or("tv"if ep else g["category"]);info={k:v for k,v in sel.items()if k not in("title","year","category","stream")};ext=info.get("external_ids",{})
+ nfo_poster=sel.get("poster","");external_poster=""
+ g=infer(node.name,folder.name if folder else"");title=sel.get("title")or ep.get("showtitle")or g["title"];year=sel.get("year")or g["year"];cat=sel.get("category")or("tv"if ep else g["category"]);info={k:v for k,v in sel.items()if k not in("title","year","category","stream","poster")};ext=info.get("external_ids",{})
  if title and not info.get("plot"):
   m=tmdb.match(title,year,cat,ext)
   if m:
+   external_poster=m.get("poster","")
    for k,v in m.items():
-    if k not in("title","year","category")and v and not info.get(k):info[k]=v
+    if k not in("title","year","category","poster")and v and not info.get(k):info[k]=v
    year=year or m.get("year");ext=info.get("external_ids",ext)
  ident=next((f"{k}:{cat}:{ext[k]}"for k in("tmdb","imdb","fixture")if ext.get(k)and(k!="fixture"or source.adapter=="mock")),f"unconfirmed:{source.id}:{node.remote_id}");var=db.scalar(select(Variant).where(Variant.node_id==node.id));work=db.get(Work,var.work_id)if var else db.scalar(select(Work).where(Work.identity==ident));info["collection_links"]=[[x.name,"source"]for x in chain if"合集"in x.name]
  if not work:work=Work(identity=ident,title=title or"未识别资源",year=year,category=cat,status="confirmed"if ext and year and info.get("plot")else"review",visible=bool(title),info=info,provenance={k:"NFO"for k in info},locked=[]);db.add(work);db.flush()
@@ -33,6 +36,8 @@ def identify_directory(db,source,directory,readers,tmdb,media_node_id=None):
   for k,v in info.items():
    if v and k not in work.locked and not merged.get(k):merged[k]=v
   work.info=merged
+ observe_poster(work,"nfo",nfo_poster,readers.settings.public_image_hosts,source.id,node.id)
+ if external_poster:observe_poster(work,"external",external_poster,readers.settings.public_image_hosts,source.id,node.id)
  update_links(db,work);a=dict(g["attributes"]);a.update(sel.get("stream",{}));a.update(ep.get("stream",{}))
  if ep:a["episode_title"]=ep.get("title","");g["season"]=ep.get("season",g["season"]);g["episodes"]=[ep["episode"]]if ep.get("episode")is not None else g["episodes"]
  subs=db.scalars(side.where(or_(*[func.lower(Node.name).endswith(x)for x in SUBTITLE]),func.lower(Node.name).contains(stem)).limit(100)).all()

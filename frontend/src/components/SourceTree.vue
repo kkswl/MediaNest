@@ -7,6 +7,7 @@ const props = defineProps<{
   depth?: number;
   id?: string;
 }>();
+const emit = defineEmits<{ index: [node: Row] }>();
 const nodes = ref<Row[]>([]);
 const loading = ref(false);
 const error = ref("");
@@ -20,7 +21,7 @@ async function load(more = false) {
   const next = more ? page.value + 1 : 1;
   try {
     const data = await api(
-      `/admin/sources/${props.sourceId}/nodes?parent=${encodeURIComponent(props.parent ?? "0")}&page=${next}&refresh=true`,
+      `/admin/sources/${props.sourceId}/nodes?parent=${encodeURIComponent(props.parent ?? "0")}&page=${next}`,
     );
     nodes.value = more ? [...nodes.value, ...data.items] : data.items;
     total.value = data.total ?? nodes.value.length;
@@ -42,7 +43,7 @@ load();
       <UButton color="neutral" variant="ghost" @click="load()">重试</UButton>
     </li>
     <li v-else-if="loaded && !nodes.length" class="muted">
-      {{ (loading || total === 0) ? "此层暂无已扫描节点，已请求按需读取。" : "此层暂无节点" }}
+      此层暂无缓存节点；浏览目录不会自动扫描。
     </li>
     <li v-for="node in nodes" :key="node.id">
       <div class="tree-row">
@@ -71,6 +72,8 @@ load();
           >{{ !node.is_dir ? bytes(node.size) : "" }} ·
           {{ label(node.health) }}</span
         >
+        <UButton v-if="node.is_dir" color="neutral" variant="outline" class="min-h-11"
+          :aria-label="`索引此目录：${node.path}`" @click="emit('index', node)">索引此目录</UButton>
       </div>
       <p class="tree-path">{{ node.path }}</p>
       <SourceTree
@@ -79,6 +82,7 @@ load();
         :source-id="sourceId"
         :parent="node.remote_id"
         :depth="(depth || 0) + 1"
+        @index="emit('index', $event)"
       />
     </li>
     <li v-if="nodes.length < total">

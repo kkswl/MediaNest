@@ -4,7 +4,8 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import select
 
-from app.db import Admin, Audit, Node, Source, Suggestion, Task, Work
+from app.config import Settings
+from app.db import Admin, Audit, Database, Node, Source, Suggestion, Task, Work
 from app.health import record_health
 from app.main import create_app
 from app.metadata import identify_directory
@@ -163,6 +164,39 @@ def test_real_import_blocked_and_cross_site_write_blocked(api):
                       headers={"Origin": "https://evil.example"}).status_code == 403
     assert owner.post("/api/logout", data="", headers={"content-type": "text/plain"}).status_code == 415
     assert public.get("/api/does-not-exist").status_code == 404
+
+
+def test_public_live_import_and_worker_persists_nodes_offline(tmp_path, monkeypatch):
+    settings = Settings(database_url="sqlite:///" + str(tmp_path / "live.db"),
+                        state_dir=str(tmp_path / "state"), secret="l" * 48,
+                        live_enabled=True, page_size=50, interval=0.1)
+    database = Database(settings.database_url)
+    database.init()
+    with database.session.begin() as db:
+        db.add(Admin(username="live-admin", password_hash=password_hash("live-password-2026"), superuser=True))
+
+    def public_snap(payload, **kwargs):
+        return {"state": True, "data": {"list": [
+            {"fid": "9001", "cid": "0", "n": "公开目录影片.mkv", "s": 10, "sha": "abc"}
+        ], "count": 1, "shareinfo": {"share_state": 1, "forbid_reason": ""}}}
+
+    app = create_app(settings)
+    monkeypatch.setattr(app.state.readers.live, "public_snap", public_snap)
+    try:
+        with TestClient(app) as client:
+            assert client.post("/api/login", json={"username": "live-admin",
+                                                    "password": "live-password-2026"}).status_code == 200
+            imported = client.post("/api/admin/import", json={"adapter": "live", "items": [
+                {"url": "https://115cdn.com/s/public?password=aaaa", "access_code": "aaaa"}]})
+            assert imported.status_code == 201, imported.text
+            source_id = imported.json()["items"][0]["id"]
+            assert app.state.worker.tick()
+            nodes = client.get(f"/api/admin/sources/{source_id}/nodes", params={"parent": "0"})
+            assert nodes.status_code == 200
+            assert nodes.json()["total"] == 1
+            assert nodes.json()["items"][0]["remote_id"] == "9001"
+    finally:
+        database.engine.dispose()
 
 
 def test_admin_creation_requires_superuser_and_password_not_returned(api):

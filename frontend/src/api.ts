@@ -83,9 +83,22 @@ export const states: Record<string, string> = {
   timeout: "网络超时",
   rate_limited: "请求受限",
   auth: "需认证",
+  public_listing: "公开目录",
+  credential_listing: "账号目录",
+  credential_required: "需要账号凭据",
+  auth_failed: "账号认证失败",
+  root_preview: "根目录预览（最多两页）",
+  directory_preview: "指定子目录索引（最多两次请求）",
+  nfo: "源 NFO",
+  directory: "作品目录海报",
+  external: "外部备用海报",
+  manual: "管理员指定",
+  legacy_unknown: "旧数据／来源待确认",
+  placeholder: "默认占位图",
+  full: "完整索引",
   uncertain: "不确定",
   confirmed: "已确认",
-  incomplete: "信息待完善",
+  incomplete: "分页不完整",
   review: "待确认",
   accepted: "已采纳",
   rejected: "已驳回",
@@ -148,9 +161,10 @@ export function safeURL(v: unknown) {
   }
 }
 export function posterOf(work: Row) {
+  if (work.info && "poster" in work.info) return safeURL(work.info.poster);
   return safeURL(
-    work.info?.poster_public_url ||
-      work.info?.poster ||
+    work.info?.poster ||
+      work.info?.poster_public_url ||
       work.info?.poster_url ||
       work.poster_url ||
       work.poster,

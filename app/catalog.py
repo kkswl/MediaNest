@@ -2,7 +2,7 @@ from sqlalchemy import String, func, or_, select
 
 from .db import Collection, Node, Person, Source, Variant, Work, WorkCollection, WorkPerson
 from .health import effective_health
-from .security import public_image, source_public_image
+from .posters import select_poster
 
 
 def valid_variants():
@@ -16,13 +16,11 @@ def valid_variants():
 
 def public_works():
     available = valid_variants().with_only_columns(Variant.work_id)
-    return select(Work).where(Work.visible.is_(True), Work.id.in_(available))
+    return select(Work).where(Work.status == "confirmed", Work.visible.is_(True), Work.id.in_(available))
 
 
 def work_dict(db, work, image_hosts=()):
-    info = dict(work.info)
-    info["poster"] = public_image(info.get("poster", "")) or source_public_image(info.get("poster", ""), image_hosts)
-    info["fallback_poster"] = public_image(info.get("fallback_poster", ""))
+    info = select_poster(work.info, work.locked, image_hosts)
     people = [{"id": p.id, "name": p.name} for p in db.scalars(select(Person).join(WorkPerson).where(
         WorkPerson.work_id == work.id)).all()]
     collections = [{"id": c.id, "name": c.name, "kind": c.kind} for c in db.scalars(
@@ -40,7 +38,8 @@ def variant_dict(db, variant, work):
     return {"id": variant.id, "source_id": source.id, "node_id": node.id, "name": node.name,
             "path": override or node.path, "original_path": node.path, "path_corrected": bool(override),
             "size": node.size, "share_url": source.url, "access_code": source.access_code,
-            "source_title": source.title, "health": effective_health(db, source, node),
+            "source_title": source.title, "source_access_status": source.access_status,
+            "health": effective_health(db, source, node),
             "checked_at": node.checked_at, "attributes": variant.attributes, "season": variant.season,
             "episodes": variant.episodes, "resource_group": variant.resource_group}
 

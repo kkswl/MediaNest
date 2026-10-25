@@ -60,12 +60,31 @@ const refreshing = ref(false);
 const text = ref("");
 const preview = ref<Row[]>([]);
 const adapter = ref("mock");
+const liveEnabled = ref(false);
 const importing = ref(false);
 const previewError = ref("");
 const previewBlocked = computed(() =>
   preview.value.some((item) => item.conflict || item.error || !/^[A-Za-z0-9]{1,32}$/.test(String(item.access_code || ""))),
 );
 const selectedSource = ref<Row | null>(null);
+const directorySelection = ref<{ source: Row; node: Row } | null>(null);
+const directoryError = ref("");
+async function indexDirectory() {
+  const selected = directorySelection.value;
+  if (!selected || actionBusy.value) return;
+  actionBusy.value = "directory";
+  directoryError.value = "";
+  try {
+    await post(`/admin/sources/${selected.source.id}/directories/${selected.node.id}/scan`);
+    directorySelection.value = null;
+    notice("指定目录已排队，仅直接子项、最多两次目录请求");
+    await router.push("/admin/jobs");
+  } catch (e) {
+    directoryError.value = (e as Error).message;
+  } finally {
+    actionBusy.value = "";
+  }
+}
 const editSource = ref<Row | null>(null);
 const sourceForm = reactive({
   title: "",
@@ -124,6 +143,10 @@ async function load() {
   error.value = "";
   selectedSource.value = null;
   try {
+    if (section.value === "import") {
+      const stats = await api("/stats");
+      liveEnabled.value = Boolean(stats.live_enabled);
+    }
     const paths: Record<string, string> = {
       sources: "/admin/sources",
       jobs: "/admin/jobs",
@@ -189,6 +212,7 @@ async function importSources() {
         title: p.title,
       })),
       adapter: adapter.value,
+      scan_mode: adapter.value === "live" ? "root_preview" : "full",
     });
     notice("分享已进入独立任务队列");
     preview.value = [];
@@ -268,6 +292,8 @@ async function saveReview() {
         if (!reviewForm.variant_id) throw new Error("请指定需要纠正路径的版本");
         fields.variant_id = Number(reviewForm.variant_id);
       }
+      // Confirming metadata alone must not silently lock an automatic poster.
+      if (fields.poster === (reviewEdit.value!.info?.poster || "")) delete fields.poster;
       await patch("/admin/works/" + reviewEdit.value!.id, fields);
       reviewEdit.value = null;
     },
@@ -427,8 +453,10 @@ watch(
             <div>
               <strong>当前只使用模拟适配器</strong>
               <p>
-                当前仅能导入 demoa、demob、demotv
+                <template v-if="liveEnabled">服务端已授权真实目录读取。真实导入只预览根目录最多两页，不读取 NFO，不递归；不要求 Cookie，接口要求认证时会提示。</template>
+                <template v-else>当前仅能导入 demoa、demob、demotv
                 三个模拟分享码。粘贴只用于解析；扫描读取本地脱敏样本，不访问真实分享。
+                </template>
               </p>
             </div>
           </div>
@@ -501,7 +529,7 @@ watch(
               <label
                 >读取适配器<select v-model="adapter">
                   <option value="mock">模拟目录（不会访问 115）</option>
-                  <option disabled value="live">真实 115（尚未授权）</option>
+                  <option :disabled="!liveEnabled" value="live">真实 115（需服务端授权，仅根目录预览）</option>
                 </select></label
               ><UButton
                 :loading="importing"
@@ -557,7 +585,11 @@ watch(
                     source.has_credential ? "已加密保存" : "未配置"
                   }}</span
                 ><span>最近扫描：{{ date(source.last_scan) }}</span>
+                <span>目录访问：{{ label(source.access_status || "uncertain") }}</span>
               </div>
+              <p v-if="source.adapter === 'live'" class="small muted">
+                公开目录可免登录读取；NFO 等私有操作需要账号凭据。根目录预览最多两页，不递归。
+              </p>
               <div class="button-row">
                 <UButton
                   color="neutral"
@@ -602,10 +634,21 @@ watch(
                 <p class="small muted">
                   按需加载已入库节点；不会在浏览目录时扫描真实资源。
                 </p>
-                <SourceTree :source-id="source.id" />
+                <SourceTree :source-id="source.id" @index="directorySelection = { source, node: $event }; directoryError = ''" />
               </div>
             </article>
           </div>
+          <section v-if="directorySelection" class="panel edit-panel" aria-labelledby="directory-confirm-heading">
+            <h3 id="directory-confirm-heading">确认指定子目录索引</h3>
+            <p class="tree-path">{{ directorySelection.node.path }}</p>
+            <p>仅索引此目录的直接子项，不递归。最多两次目录分页请求，失败也会消耗预算；暂停、重试和重启不重置。</p>
+            <p class="small muted">完成仅表示限定范围结束，不代表整个分享入库。真实来源不读取 NFO、海报或影视内容。</p>
+            <p v-if="directoryError" role="alert">{{ directoryError }}</p>
+            <div class="form-actions">
+              <UButton class="min-h-11" :loading="actionBusy === 'directory'" @click="indexDirectory">确认索引此目录</UButton>
+              <UButton class="min-h-11" color="neutral" variant="ghost" :disabled="actionBusy === 'directory'" @click="directorySelection = null">取消</UButton>
+            </div>
+          </section>
           <section v-if="editSource" class="panel edit-panel">
             <h3>编辑来源 · {{ editSource.title }}</h3>
             <form class="form-grid" @submit.prevent="saveSource">
@@ -661,6 +704,14 @@ watch(
               <div>
                 <span class="small muted">任务 #{{ job.id }}</span>
                 <h3>{{ job.title || "来源 " + job.source_id }}</h3>
+                <p class="small muted">{{ label(job.scan_mode || 'full') }}</p>
+                <p v-if="job.scan_mode === 'directory_preview'" class="tree-path">范围：{{ job.scope_path }}（仅直接子项）</p>
+                <p v-if="job.request_limit" class="small muted">
+                  目录请求 {{ job.scan_requests || 0 }} / {{ job.request_limit || 2 }}；
+                  已返回 {{ job.pages_read || 0 }} 页、{{ job.nodes_read || 0 }} 个节点。
+                  {{ (job.truncated || (job.status === 'partial' && job.scan_requests >= job.request_limit)) ? '部分返回／请求预算耗尽，不代表完整入库' : '不递归扫描' }}
+                  {{ job.status === 'complete' ? '已完成限定范围，不代表整个分享入库。' : '' }}
+                </p>
               </div>
               <span class="health-badge" :data-state="job.status">{{
                 label(job.status)
@@ -690,7 +741,7 @@ watch(
               >
             </div>
             <p class="small muted">
-              进度仅按当前已知任务计算；发现子目录后任务总量会增加。
+              {{ job.request_limit ? '仅处理限定目录的直接子项，不会递归。请求预算耗尽后不会自动续扫。' : '进度仅按当前已知任务计算；发现子目录后任务总量会增加。' }}
             </p>
             <p v-if="job.error" class="inline-error">{{ job.error }}</p>
             <details v-if="job.errors?.length">
@@ -774,7 +825,7 @@ watch(
 
         <template v-else-if="section === 'review'"
           ><p class="section-description">
-            可读但资料不足的作品可标记“信息待完善”；无法判断片名的节点仅在后台。人工确认字段不会被自动识别覆盖。
+            待确认作品仅在后台显示；管理员确认后才可公开。人工确认字段不会被自动识别覆盖。
           </p>
           <div v-if="!loading && !data.length" class="state-panel">
             <UIcon name="i-lucide-check-check" />
@@ -794,8 +845,9 @@ watch(
                 <h3>{{ work.title || "无法识别名称" }}</h3>
                 <p class="small muted">
                   {{ work.year || "年份未知" }} ·
-                  {{ work.visible ? "前台：信息待完善" : "仅后台可见" }}
+                  <span>待确认 · 仅后台可见</span>
                 </p>
+                <p class="small muted">海报来源：{{ label(work.info?.poster_source || 'placeholder') }} · {{ work.info?.poster_locked ? '人工锁定' : '未锁定' }}</p>
                 <p v-if="work.review_reason || work.reason" class="small">
                   {{ work.review_reason || work.reason }}
                 </p>
@@ -831,7 +883,7 @@ watch(
                   <option value="concert">演唱会</option>
                 </select></label
               ><label
-                >公开海报网址<input
+                >公开海报网址（修改后人工锁定）<input
                   v-model="reviewForm.poster"
                   type="url"
                   placeholder="https://…" /></label

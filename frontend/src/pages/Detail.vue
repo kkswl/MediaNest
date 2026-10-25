@@ -275,6 +275,7 @@ function attributes(v: Row) {
         <p class="small muted">
           不播放、不转存。请根据完整路径在原分享中查找。
         </p>
+        <p class="small muted">海报来源：{{ label(work.info?.poster_source || 'placeholder') }} · {{ work.info?.poster_locked ? '人工锁定' : '自动选择' }}</p>
         <details
           v-if="Object.keys(work.provenance || {}).length"
           class="provenance"
@@ -396,6 +397,10 @@ function attributes(v: Row) {
             <div>
               <dt>分享来源</dt>
               <dd>{{ v.source_title || "115 分享" }}</dd>
+            </div>
+            <div>
+              <dt>目录访问</dt>
+              <dd>{{ label(v.source_access_status || "uncertain") }}</dd>
             </div>
             <div>
               <dt>访问码</dt>

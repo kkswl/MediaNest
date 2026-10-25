@@ -1,11 +1,11 @@
 import argparse
 import time
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 
 from .adapters import Readers
 from .config import Settings
-from .db import Admin, Database, Source
+from .db import Admin, Database, SchemaMigration, Source
 from .security import password_hash
 from .worker import Worker, start_scan
 
@@ -68,7 +68,9 @@ def main():
         print("管理员已建立；请勿在公开环境使用演示账户")
     elif args.command == "migrate":
         # context() has already initialized and upgraded the schema.
-        print("数据库迁移已应用；当前基线版本为 1")
+        with database.session() as db:
+            version = db.scalar(select(func.max(SchemaMigration.version)))
+        print(f"数据库迁移已应用；当前版本为 {version}")
     elif args.command == "seed-demo":
         count = seed_demo(database, settings, readers, worker)
         print(f"模拟导入完成，执行 {count} 个任务步骤；没有访问 115 或 TMDB。")

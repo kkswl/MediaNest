@@ -8,6 +8,8 @@ from .db import HealthEvent, Node, Task
 
 
 def record_health(db, source, node, result, reason, settings):
+    # Keep legacy adapter kind `auth` accepted while exposing an explicit event category.
+    result = "auth_failed" if result == "auth" else result
     target = node if node is not None else source
     now = time.time()
     target.checked_at = now
