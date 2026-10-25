@@ -1,0 +1,4 @@
+Inventory of installed Python and npm packages (includes development tools).
+Missing full texts are NOT implied licensed for redistribution; review before release.
+npm:@iconify/collections@1.0.754
+python:urllib3_future_request@0.0.2

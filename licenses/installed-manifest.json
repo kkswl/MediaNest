@@ -1,0 +1,4136 @@
+[
+  {
+    "ecosystem": "npm",
+    "name": "@alloc/quick-lru",
+    "version": "5.3.0",
+    "license": "MIT",
+    "source": "https://github.com/aleclarson/quick-lru",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@antfu/install-pkg",
+    "version": "2.1.0",
+    "license": "MIT",
+    "source": "git+https://github.com/antfu-collective/install-pkg.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/helper-string-parser",
+    "version": "7.29.7",
+    "license": "MIT",
+    "source": "https://github.com/babel/babel.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/helper-validator-identifier",
+    "version": "7.29.7",
+    "license": "MIT",
+    "source": "https://github.com/babel/babel.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/parser",
+    "version": "7.29.9",
+    "license": "MIT",
+    "source": "https://github.com/babel/babel.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/types",
+    "version": "7.29.8",
+    "license": "MIT",
+    "source": "https://github.com/babel/babel.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@capsizecss/unpack",
+    "version": "4.0.1",
+    "license": "MIT",
+    "source": "https://github.com/seek-oss/capsize.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@esbuild/win32-x64",
+    "version": "0.28.2",
+    "license": "MIT",
+    "source": "git+https://github.com/evanw/esbuild.git",
+    "notice_files": [
+      "matching-version-parent:esbuild/LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@floating-ui/core",
+    "version": "1.8.0",
+    "license": "MIT",
+    "source": "https://github.com/floating-ui/floating-ui.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@floating-ui/dom",
+    "version": "1.8.0",
+    "license": "MIT",
+    "source": "https://github.com/floating-ui/floating-ui.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@floating-ui/utils",
+    "version": "0.2.12",
+    "license": "MIT",
+    "source": "https://github.com/floating-ui/floating-ui.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@floating-ui/vue",
+    "version": "2.0.1",
+    "license": "MIT",
+    "source": "https://github.com/floating-ui/floating-ui.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@iconify-json/lucide",
+    "version": "1.2.147",
+    "license": "ISC",
+    "source": "",
+    "supplemental_source": "https://raw.githubusercontent.com/lucide-icons/lucide/main/LICENSE",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/lucide-icons/lucide/main/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@iconify/collections",
+    "version": "1.0.754",
+    "license": "MIT",
+    "source": "",
+    "notice_files": []
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@iconify/types",
+    "version": "2.0.0",
+    "license": "MIT",
+    "source": "https://github.com/iconify/iconify.git",
+    "notice_files": [
+      "license.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@iconify/utils",
+    "version": "3.1.7",
+    "license": "MIT",
+    "source": "https://github.com/iconify/iconify.git",
+    "notice_files": [
+      "license.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@iconify/vue",
+    "version": "5.0.4",
+    "license": "MIT",
+    "source": "https://github.com/iconify/iconify.git",
+    "notice_files": [
+      "license.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@internationalized/date",
+    "version": "3.12.4",
+    "license": "Apache-2.0",
+    "source": "https://github.com/adobe/react-spectrum/tree/main/packages/@internationalized/date",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@internationalized/number",
+    "version": "3.6.9",
+    "license": "Apache-2.0",
+    "source": "https://github.com/adobe/react-spectrum",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@jridgewell/gen-mapping",
+    "version": "0.3.13",
+    "license": "MIT",
+    "source": "git+https://github.com/jridgewell/sourcemaps.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@jridgewell/remapping",
+    "version": "2.3.5",
+    "license": "MIT",
+    "source": "git+https://github.com/jridgewell/sourcemaps.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@jridgewell/resolve-uri",
+    "version": "3.1.2",
+    "license": "MIT",
+    "source": "https://github.com/jridgewell/resolve-uri",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@jridgewell/sourcemap-codec",
+    "version": "1.6.0",
+    "license": "MIT",
+    "source": "git+https://github.com/jridgewell/sourcemaps.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@jridgewell/trace-mapping",
+    "version": "0.3.31",
+    "license": "MIT",
+    "source": "git+https://github.com/jridgewell/sourcemaps.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@nuxt/devtools-kit",
+    "version": "3.4.4",
+    "license": "MIT",
+    "source": "git+https://github.com/nuxt/devtools.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@nuxt/fonts",
+    "version": "0.14.0",
+    "license": "MIT",
+    "source": "git+https://github.com/nuxt/fonts.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@nuxt/icon",
+    "version": "2.5.1",
+    "license": "MIT",
+    "source": "nuxt/icon",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@nuxt/kit",
+    "version": "4.6.2",
+    "license": "MIT",
+    "source": "git+https://github.com/nuxt/nuxt.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@nuxt/schema",
+    "version": "4.6.2",
+    "license": "MIT",
+    "source": "git+https://github.com/nuxt/nuxt.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@nuxt/ui",
+    "version": "4.12.0",
+    "license": "MIT",
+    "source": "git+https://github.com/nuxt/ui.git",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@nuxtjs/color-mode",
+    "version": "4.0.1",
+    "license": "MIT",
+    "source": "git+https://github.com/nuxt-modules/color-mode.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@playwright/test",
+    "version": "1.64.1",
+    "license": "Apache-2.0",
+    "source": "git+https://github.com/microsoft/playwright.git",
+    "notice_files": [
+      "LICENSE",
+      "NOTICE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@polka/url",
+    "version": "1.0.0-next.29",
+    "license": "MIT",
+    "source": "lukeed/polka",
+    "supplemental_source": "https://raw.githubusercontent.com/lukeed/polka/next/license",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/lukeed/polka/next/license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@rolldown/pluginutils",
+    "version": "1.0.1",
+    "license": "MIT",
+    "source": "git+https://github.com/rolldown/plugins.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@rollup/rollup-win32-x64-gnu",
+    "version": "4.65.0",
+    "license": "MIT",
+    "source": "git+https://github.com/rollup/rollup.git",
+    "notice_files": [
+      "matching-version-parent:rollup/LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@rollup/rollup-win32-x64-msvc",
+    "version": "4.65.0",
+    "license": "MIT",
+    "source": "git+https://github.com/rollup/rollup.git",
+    "notice_files": [
+      "matching-version-parent:rollup/LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@standard-schema/spec",
+    "version": "1.1.0",
+    "license": "MIT",
+    "source": "https://github.com/standard-schema/standard-schema",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@swc/helpers",
+    "version": "0.5.23",
+    "license": "Apache-2.0",
+    "source": "git+https://github.com/swc-project/swc.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tailwindcss/node",
+    "version": "4.3.3",
+    "license": "MIT",
+    "source": "https://github.com/tailwindlabs/tailwindcss.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tailwindcss/oxide",
+    "version": "4.3.3",
+    "license": "MIT",
+    "source": "git+https://github.com/tailwindlabs/tailwindcss.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tailwindcss/oxide-win32-x64-msvc",
+    "version": "4.3.3",
+    "license": "MIT",
+    "source": "git+https://github.com/tailwindlabs/tailwindcss.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tailwindcss/postcss",
+    "version": "4.3.3",
+    "license": "MIT",
+    "source": "https://github.com/tailwindlabs/tailwindcss.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tailwindcss/vite",
+    "version": "4.3.3",
+    "license": "MIT",
+    "source": "https://github.com/tailwindlabs/tailwindcss.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tanstack/table-core",
+    "version": "8.21.3",
+    "license": "MIT",
+    "source": "https://github.com/TanStack/table.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tanstack/virtual-core",
+    "version": "3.19.7",
+    "license": "MIT",
+    "source": "git+https://github.com/TanStack/virtual.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tanstack/vue-table",
+    "version": "8.21.3",
+    "license": "MIT",
+    "source": "https://github.com/TanStack/table.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tanstack/vue-virtual",
+    "version": "3.13.48",
+    "license": "MIT",
+    "source": "git+https://github.com/TanStack/virtual.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/core",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-blockquote",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-bold",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-bubble-menu",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-bullet-list",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-code",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-code-block",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-collaboration",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-document",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-drag-handle",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-drag-handle-vue-3",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-dropcursor",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-floating-menu",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-gapcursor",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-hard-break",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-heading",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-horizontal-rule",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-image",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-italic",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-link",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-list",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-list-item",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-list-keymap",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-mention",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-node-range",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-ordered-list",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-paragraph",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-placeholder",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-strike",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-text",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extension-underline",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/extensions",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/markdown",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/pm",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/starter-kit",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/suggestion",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/vue-3",
+    "version": "3.32.0",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@tiptap/y-tiptap",
+    "version": "3.0.10",
+    "license": "MIT",
+    "source": "https://github.com/ueberdosis/tiptap",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/estree",
+    "version": "1.0.9",
+    "license": "MIT",
+    "source": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/web-bluetooth",
+    "version": "0.0.20",
+    "license": "MIT",
+    "source": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/web-bluetooth",
+    "version": "0.0.21",
+    "license": "MIT",
+    "source": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@unhead/bundler",
+    "version": "3.4.3",
+    "license": "MIT",
+    "source": "git+https://github.com/unjs/unhead.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@unhead/vue",
+    "version": "3.4.3",
+    "license": "MIT",
+    "source": "git+https://github.com/unjs/unhead.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vitejs/plugin-vue",
+    "version": "6.0.10",
+    "license": "MIT",
+    "source": "git+https://github.com/vitejs/vite-plugin-vue.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@volar/language-core",
+    "version": "2.4.28",
+    "license": "MIT",
+    "source": "https://github.com/volarjs/volar.js.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@volar/source-map",
+    "version": "2.4.28",
+    "license": "MIT",
+    "source": "https://github.com/volarjs/volar.js.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@volar/typescript",
+    "version": "2.4.28",
+    "license": "MIT",
+    "source": "https://github.com/volarjs/volar.js.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vue/compiler-core",
+    "version": "3.5.44",
+    "license": "MIT",
+    "source": "git+https://github.com/vuejs/core.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vue/compiler-dom",
+    "version": "3.5.44",
+    "license": "MIT",
+    "source": "git+https://github.com/vuejs/core.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vue/compiler-sfc",
+    "version": "3.5.44",
+    "license": "MIT",
+    "source": "git+https://github.com/vuejs/core.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vue/compiler-ssr",
+    "version": "3.5.44",
+    "license": "MIT",
+    "source": "git+https://github.com/vuejs/core.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vue/devtools-api",
+    "version": "6.6.4",
+    "license": "MIT",
+    "source": "https://github.com/vuejs/vue-devtools.git",
+    "supplemental_source": "https://raw.githubusercontent.com/vuejs/vue-devtools/v6.6.4/LICENSE",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/vuejs/vue-devtools/v6.6.4/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vue/language-core",
+    "version": "3.3.13",
+    "license": "MIT",
+    "source": "https://github.com/vuejs/language-tools.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vue/reactivity",
+    "version": "3.5.44",
+    "license": "MIT",
+    "source": "git+https://github.com/vuejs/core.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vue/runtime-core",
+    "version": "3.5.44",
+    "license": "MIT",
+    "source": "git+https://github.com/vuejs/core.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vue/runtime-dom",
+    "version": "3.5.44",
+    "license": "MIT",
+    "source": "git+https://github.com/vuejs/core.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vue/server-renderer",
+    "version": "3.5.44",
+    "license": "MIT",
+    "source": "git+https://github.com/vuejs/core.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vue/shared",
+    "version": "3.5.44",
+    "license": "MIT",
+    "source": "git+https://github.com/vuejs/core.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vueuse/core",
+    "version": "10.11.1",
+    "license": "MIT",
+    "source": "git+https://github.com/vueuse/vueuse.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vueuse/core",
+    "version": "14.4.0",
+    "license": "MIT",
+    "source": "git+https://github.com/vueuse/vueuse.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vueuse/integrations",
+    "version": "14.4.0",
+    "license": "MIT",
+    "source": "git+https://github.com/vueuse/vueuse.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vueuse/metadata",
+    "version": "10.11.1",
+    "license": "MIT",
+    "source": "git+https://github.com/vueuse/vueuse.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vueuse/metadata",
+    "version": "14.4.0",
+    "license": "MIT",
+    "source": "git+https://github.com/vueuse/vueuse.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vueuse/shared",
+    "version": "10.11.1",
+    "license": "MIT",
+    "source": "git+https://github.com/vueuse/vueuse.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vueuse/shared",
+    "version": "14.4.0",
+    "license": "MIT",
+    "source": "git+https://github.com/vueuse/vueuse.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "acorn",
+    "version": "8.19.0",
+    "license": "MIT",
+    "source": "git+https://github.com/acornjs/acorn.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "alien-signals",
+    "version": "3.2.1",
+    "license": "MIT",
+    "source": "git+https://github.com/stackblitz/alien-signals.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "anymatch",
+    "version": "3.1.3",
+    "license": "ISC",
+    "source": "https://github.com/micromatch/anymatch",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "aria-hidden",
+    "version": "1.2.6",
+    "license": "MIT",
+    "source": "git+https://github.com/theKashey/aria-hidden.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "chokidar",
+    "version": "5.0.0",
+    "license": "MIT",
+    "source": "git+https://github.com/paulmillr/chokidar.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "colortranslator",
+    "version": "5.0.0",
+    "license": "Apache-2.0",
+    "source": "git+https://github.com/elchininet/ColorTranslator.git",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "confbox",
+    "version": "0.1.8",
+    "license": "MIT",
+    "source": "unjs/confbox",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "confbox",
+    "version": "0.3.1",
+    "license": "MIT",
+    "source": "unjs/confbox",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "consola",
+    "version": "3.4.2",
+    "license": "MIT",
+    "source": "unjs/consola",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "cookie-es",
+    "version": "1.2.3",
+    "license": "MIT",
+    "source": "unjs/cookie-es",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "cross-spawn",
+    "version": "7.0.6",
+    "license": "MIT",
+    "source": "git@github.com:moxystudio/node-cross-spawn.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "crossws",
+    "version": "0.3.5",
+    "license": "MIT",
+    "source": "h3js/crossws",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "css-tree",
+    "version": "3.2.1",
+    "license": "MIT",
+    "source": "csstree/csstree",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "csstype",
+    "version": "3.2.3",
+    "license": "MIT",
+    "source": "https://github.com/frenic/csstype",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "defu",
+    "version": "6.1.7",
+    "license": "MIT",
+    "source": "unjs/defu",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "destr",
+    "version": "2.0.5",
+    "license": "MIT",
+    "source": "unjs/destr",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "detect-libc",
+    "version": "2.1.2",
+    "license": "Apache-2.0",
+    "source": "git://github.com/lovell/detect-libc.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "embla-carousel",
+    "version": "8.6.0",
+    "license": "MIT",
+    "source": "git+https://github.com/davidjerleke/embla-carousel",
+    "supplemental_source": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "embla-carousel-auto-height",
+    "version": "8.6.0",
+    "license": "MIT",
+    "source": "git+https://github.com/davidjerleke/embla-carousel",
+    "supplemental_source": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "embla-carousel-auto-scroll",
+    "version": "8.6.0",
+    "license": "MIT",
+    "source": "git+https://github.com/davidjerleke/embla-carousel",
+    "supplemental_source": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "embla-carousel-autoplay",
+    "version": "8.6.0",
+    "license": "MIT",
+    "source": "git+https://github.com/davidjerleke/embla-carousel",
+    "supplemental_source": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "embla-carousel-class-names",
+    "version": "8.6.0",
+    "license": "MIT",
+    "source": "git+https://github.com/davidjerleke/embla-carousel",
+    "supplemental_source": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "embla-carousel-fade",
+    "version": "8.6.0",
+    "license": "MIT",
+    "source": "git+https://github.com/davidjerleke/embla-carousel",
+    "supplemental_source": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "embla-carousel-reactive-utils",
+    "version": "8.6.0",
+    "license": "MIT",
+    "source": "git+https://github.com/davidjerleke/embla-carousel",
+    "supplemental_source": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "embla-carousel-vue",
+    "version": "8.6.0",
+    "license": "MIT",
+    "source": "git+https://github.com/davidjerleke/embla-carousel",
+    "supplemental_source": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/davidjerleke/embla-carousel/v8.6.0/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "embla-carousel-wheel-gestures",
+    "version": "8.1.0",
+    "license": "MIT",
+    "source": "https://github.com/xiel/embla-carousel-wheel-gestures.git",
+    "supplemental_source": "https://raw.githubusercontent.com/xiel/embla-carousel-wheel-gestures/v8.1.0/LICENSE",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/xiel/embla-carousel-wheel-gestures/v8.1.0/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "enhanced-resolve",
+    "version": "5.26.0",
+    "license": "MIT",
+    "source": "git+https://github.com/webpack/enhanced-resolve.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "entities",
+    "version": "7.0.1",
+    "license": "BSD-2-Clause",
+    "source": "https://github.com/fb55/entities.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "errx",
+    "version": "0.2.2",
+    "license": "MIT",
+    "source": "danielroe/errx",
+    "notice_files": [
+      "LICENCE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "esbuild",
+    "version": "0.28.2",
+    "license": "MIT",
+    "source": "git+https://github.com/evanw/esbuild.git",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "escape-string-regexp",
+    "version": "5.0.0",
+    "license": "MIT",
+    "source": "sindresorhus/escape-string-regexp",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "estree-walker",
+    "version": "2.0.2",
+    "license": "MIT",
+    "source": "https://github.com/Rich-Harris/estree-walker",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "estree-walker",
+    "version": "3.0.3",
+    "license": "MIT",
+    "source": "https://github.com/Rich-Harris/estree-walker",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "execa",
+    "version": "8.0.1",
+    "license": "MIT",
+    "source": "sindresorhus/execa",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "exsolve",
+    "version": "1.1.3",
+    "license": "MIT",
+    "source": "unjs/exsolve",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "fdir",
+    "version": "6.5.0",
+    "license": "MIT",
+    "source": "git+https://github.com/thecodrr/fdir.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "fontaine",
+    "version": "0.8.0",
+    "license": "MIT",
+    "source": "git+https://github.com/unjs/fontaine.git",
+    "notice_files": [
+      "LICENCE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "fontkitten",
+    "version": "1.0.3",
+    "license": "MIT",
+    "source": "git+https://github.com/delucis/fontkitten.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "fontless",
+    "version": "0.2.1",
+    "license": "MIT",
+    "source": "git+https://github.com/unjs/fontaine.git",
+    "notice_files": [
+      "LICENCE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "framer-motion",
+    "version": "14.3.1",
+    "license": "MIT",
+    "source": "https://github.com/motiondivision/motion/",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "fuse.js",
+    "version": "7.5.0",
+    "license": "Apache-2.0",
+    "source": "https://github.com/krisk/Fuse.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "get-stream",
+    "version": "8.0.1",
+    "license": "MIT",
+    "source": "sindresorhus/get-stream",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "graceful-fs",
+    "version": "4.2.11",
+    "license": "ISC",
+    "source": "https://github.com/isaacs/node-graceful-fs",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "h3",
+    "version": "1.15.11",
+    "license": "MIT",
+    "source": "h3js/h3",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "hey-listen",
+    "version": "1.0.8",
+    "license": "MIT",
+    "source": "git+https://github.com/Popmotion/hey-listen.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "hookable",
+    "version": "6.1.2",
+    "license": "MIT",
+    "source": "unjs/hookable",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "human-signals",
+    "version": "5.0.0",
+    "license": "Apache-2.0",
+    "source": "ehmicky/human-signals",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "ignore",
+    "version": "7.0.13",
+    "license": "MIT",
+    "source": "https://github.com/kaelzhang/node-ignore.git",
+    "notice_files": [
+      "LICENSE-MIT"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "import-meta-resolve",
+    "version": "4.2.0",
+    "license": "MIT",
+    "source": "wooorm/import-meta-resolve",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "iron-webcrypto",
+    "version": "1.2.1",
+    "license": "MIT",
+    "source": "github:brc-dd/iron-webcrypto",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "is-stream",
+    "version": "3.0.0",
+    "license": "MIT",
+    "source": "sindresorhus/is-stream",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "isexe",
+    "version": "2.0.0",
+    "license": "ISC",
+    "source": "git+https://github.com/isaacs/isexe.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "isomorphic.js",
+    "version": "0.2.5",
+    "license": "MIT",
+    "source": "git+https://github.com/dmonad/isomorphic.js.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "jiti",
+    "version": "2.7.0",
+    "license": "MIT",
+    "source": "unjs/jiti",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "js-tokens",
+    "version": "10.0.0",
+    "license": "MIT",
+    "source": "lydell/js-tokens",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "klona",
+    "version": "2.0.6",
+    "license": "MIT",
+    "source": "lukeed/klona",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "knitwork",
+    "version": "1.3.0",
+    "license": "MIT",
+    "source": "unjs/knitwork",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "lib0",
+    "version": "0.2.119",
+    "license": "MIT",
+    "source": "git+https://github.com/dmonad/lib0.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "lightningcss",
+    "version": "1.32.0",
+    "license": "MPL-2.0",
+    "source": "https://github.com/parcel-bundler/lightningcss.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "lightningcss-win32-x64-msvc",
+    "version": "1.32.0",
+    "license": "MPL-2.0",
+    "source": "https://github.com/parcel-bundler/lightningcss.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "linkifyjs",
+    "version": "4.4.0",
+    "license": "MIT",
+    "source": "git+https://github.com/nfrasser/linkifyjs.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "local-pkg",
+    "version": "1.2.1",
+    "license": "MIT",
+    "source": "git+https://github.com/antfu-collective/local-pkg.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "lru-cache",
+    "version": "11.5.3",
+    "license": "BlueOak-1.0.0",
+    "source": "git+ssh://git@github.com/isaacs/node-lru-cache.git",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "magic-regexp",
+    "version": "0.10.0",
+    "license": "MIT",
+    "source": "git+https://github.com/unjs/magic-regexp.git",
+    "notice_files": [
+      "LICENCE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "magic-string",
+    "version": "0.30.21",
+    "license": "MIT",
+    "source": "git+https://github.com/Rich-Harris/magic-string.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "magic-string",
+    "version": "1.4.3",
+    "license": "MIT",
+    "source": "git+https://github.com/Rich-Harris/magic-string.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "marked",
+    "version": "17.0.6",
+    "license": "MIT",
+    "source": "git://github.com/markedjs/marked.git",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "mdn-data",
+    "version": "2.27.1",
+    "license": "CC0-1.0",
+    "source": "https://github.com/mdn/data.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "merge-stream",
+    "version": "2.0.0",
+    "license": "MIT",
+    "source": "grncdr/merge-stream",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "microdiff",
+    "version": "1.6.0",
+    "license": "MIT",
+    "source": "https://github.com/AsyncBanana/microdiff",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "mimic-fn",
+    "version": "4.0.0",
+    "license": "MIT",
+    "source": "sindresorhus/mimic-fn",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "mlly",
+    "version": "1.8.2",
+    "license": "MIT",
+    "source": "unjs/mlly",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "motion-dom",
+    "version": "14.3.1",
+    "license": "MIT",
+    "source": "https://github.com/motiondivision/motion",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "motion-utils",
+    "version": "14.1.1",
+    "license": "MIT",
+    "source": "https://github.com/motiondivision/motion",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "motion-v",
+    "version": "2.8.0",
+    "license": "MIT",
+    "source": "https://github.com/motiondivision/motion-vue.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "mrmime",
+    "version": "2.0.1",
+    "license": "MIT",
+    "source": "lukeed/mrmime",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "muggle-string",
+    "version": "0.4.1",
+    "license": "MIT",
+    "source": "https://github.com/johnsoncodehk/muggle-string.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "nanoid",
+    "version": "3.3.20",
+    "license": "MIT",
+    "source": "ai/nanoid",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "node-fetch-native",
+    "version": "1.6.7",
+    "license": "MIT",
+    "source": "unjs/node-fetch-native",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "node-mock-http",
+    "version": "1.0.5",
+    "license": "MIT",
+    "source": "unjs/node-mock-http",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "normalize-path",
+    "version": "3.0.0",
+    "license": "MIT",
+    "source": "jonschlinkert/normalize-path",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "nostics",
+    "version": "1.3.0",
+    "license": "MIT",
+    "source": "git+https://github.com/vercel-labs/nostics.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "npm-run-path",
+    "version": "5.3.0",
+    "license": "MIT",
+    "source": "sindresorhus/npm-run-path",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "obug",
+    "version": "2.2.1",
+    "license": "MIT",
+    "source": "git+https://github.com/sxzz/obug.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "ofetch",
+    "version": "1.5.1",
+    "license": "MIT",
+    "source": "unjs/ofetch",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "ohash",
+    "version": "2.0.12",
+    "license": "MIT",
+    "source": "unjs/ohash",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "onetime",
+    "version": "6.0.0",
+    "license": "MIT",
+    "source": "sindresorhus/onetime",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "orderedmap",
+    "version": "2.1.1",
+    "license": "MIT",
+    "source": "git+https://github.com/marijnh/orderedmap.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "oxc-walker",
+    "version": "1.1.1",
+    "license": "MIT",
+    "source": "oxc-project/oxc-walker",
+    "notice_files": [
+      "LICENCE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "package-manager-detector",
+    "version": "1.9.0",
+    "license": "MIT",
+    "source": "git+https://github.com/antfu-collective/package-manager-detector.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "path-browserify",
+    "version": "1.0.1",
+    "license": "MIT",
+    "source": "git://github.com/browserify/path-browserify.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "path-key",
+    "version": "3.1.1",
+    "license": "MIT",
+    "source": "sindresorhus/path-key",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "path-key",
+    "version": "4.0.0",
+    "license": "MIT",
+    "source": "sindresorhus/path-key",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "pathe",
+    "version": "2.0.3",
+    "license": "MIT",
+    "source": "unjs/pathe",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "picocolors",
+    "version": "1.1.1",
+    "license": "ISC",
+    "source": "alexeyraspopov/picocolors",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "picomatch",
+    "version": "2.3.2",
+    "license": "MIT",
+    "source": "micromatch/picomatch",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "picomatch",
+    "version": "4.0.7",
+    "license": "MIT",
+    "source": "micromatch/picomatch",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "pkg-types",
+    "version": "1.3.1",
+    "license": "MIT",
+    "source": "unjs/pkg-types",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "pkg-types",
+    "version": "2.4.0",
+    "license": "MIT",
+    "source": "unjs/pkg-types",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "playwright",
+    "version": "1.64.1",
+    "license": "Apache-2.0",
+    "source": "git+https://github.com/microsoft/playwright.git",
+    "notice_files": [
+      "LICENSE",
+      "NOTICE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "playwright-core",
+    "version": "1.64.1",
+    "license": "Apache-2.0",
+    "source": "git+https://github.com/microsoft/playwright.git",
+    "notice_files": [
+      "LICENSE",
+      "NOTICE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "postcss",
+    "version": "8.5.31",
+    "license": "MIT",
+    "source": "postcss/postcss",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prosemirror-changeset",
+    "version": "2.4.4",
+    "license": "MIT",
+    "source": "git+https://code.haverbeke.berlin/prosemirror/prosemirror-changeset.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prosemirror-commands",
+    "version": "1.7.2",
+    "license": "MIT",
+    "source": "git+https://code.haverbeke.berlin/prosemirror/prosemirror-commands.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prosemirror-dropcursor",
+    "version": "1.8.4",
+    "license": "MIT",
+    "source": "git+https://code.haverbeke.berlin/prosemirror/prosemirror-dropcursor.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prosemirror-gapcursor",
+    "version": "1.4.1",
+    "license": "MIT",
+    "source": "git://github.com/prosemirror/prosemirror-gapcursor.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prosemirror-history",
+    "version": "1.5.1",
+    "license": "MIT",
+    "source": "git+https://code.haverbeke.berlin/prosemirror/prosemirror-history.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prosemirror-inputrules",
+    "version": "1.5.1",
+    "license": "MIT",
+    "source": "git://github.com/prosemirror/prosemirror-inputrules.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prosemirror-keymap",
+    "version": "1.2.3",
+    "license": "MIT",
+    "source": "git://github.com/prosemirror/prosemirror-keymap.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prosemirror-model",
+    "version": "1.25.12",
+    "license": "MIT",
+    "source": "git+https://code.haverbeke.berlin/prosemirror/prosemirror-model.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prosemirror-schema-list",
+    "version": "1.5.1",
+    "license": "MIT",
+    "source": "git://github.com/prosemirror/prosemirror-schema-list.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prosemirror-state",
+    "version": "1.4.4",
+    "license": "MIT",
+    "source": "git://github.com/prosemirror/prosemirror-state.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prosemirror-tables",
+    "version": "1.8.5",
+    "license": "MIT",
+    "source": "https://github.com/ProseMirror/prosemirror-tables.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prosemirror-transform",
+    "version": "1.12.4",
+    "license": "MIT",
+    "source": "git+https://code.haverbeke.berlin/prosemirror/prosemirror-transform.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prosemirror-view",
+    "version": "1.42.7",
+    "license": "MIT",
+    "source": "git+https://code.haverbeke.berlin/prosemirror/prosemirror-view.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "quansync",
+    "version": "0.2.11",
+    "license": "MIT",
+    "source": "git+https://github.com/quansync-dev/quansync.git",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "radix3",
+    "version": "1.1.2",
+    "license": "MIT",
+    "source": "unjs/radix3",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "rc9",
+    "version": "3.1.0",
+    "license": "MIT",
+    "source": "unjs/rc9",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "readdirp",
+    "version": "5.1.1",
+    "license": "MIT",
+    "source": "https://github.com/paulmillr/readdirp.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "regexp-tree",
+    "version": "0.1.27",
+    "license": "MIT",
+    "source": "DmitrySoshnikov/regexp-tree",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "reka-ui",
+    "version": "2.11.0",
+    "license": "MIT",
+    "source": "git+https://github.com/unovue/reka-ui.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "rollup",
+    "version": "4.65.0",
+    "license": "MIT",
+    "source": "git+https://github.com/rollup/rollup.git",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "rope-sequence",
+    "version": "1.3.4",
+    "license": "MIT",
+    "source": "git+https://github.com/marijnh/rope-sequence.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "scule",
+    "version": "1.3.0",
+    "license": "MIT",
+    "source": "unjs/scule",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "semver",
+    "version": "7.8.5",
+    "license": "ISC",
+    "source": "git+https://github.com/npm/node-semver.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "shebang-command",
+    "version": "2.0.0",
+    "license": "MIT",
+    "source": "kevva/shebang-command",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "shebang-regex",
+    "version": "3.0.0",
+    "license": "MIT",
+    "source": "sindresorhus/shebang-regex",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "signal-exit",
+    "version": "4.1.0",
+    "license": "ISC",
+    "source": "https://github.com/tapjs/signal-exit.git",
+    "notice_files": [
+      "LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "sirv",
+    "version": "3.0.2",
+    "license": "MIT",
+    "source": "lukeed/sirv",
+    "supplemental_source": "https://raw.githubusercontent.com/lukeed/sirv/v3.0.2/license",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/lukeed/sirv/v3.0.2/license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "source-map-js",
+    "version": "1.2.2",
+    "license": "BSD-3-Clause",
+    "source": "7rulnik/source-map-js",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "std-env",
+    "version": "4.3.0",
+    "license": "MIT",
+    "source": "unjs/std-env",
+    "notice_files": [
+      "LICENCE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "strip-final-newline",
+    "version": "3.0.0",
+    "license": "MIT",
+    "source": "sindresorhus/strip-final-newline",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "strip-literal",
+    "version": "4.0.0",
+    "license": "MIT",
+    "source": "git+https://github.com/antfu/strip-literal.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "tailwind-merge",
+    "version": "3.7.0",
+    "license": "MIT",
+    "source": "https://github.com/dcastil/tailwind-merge.git",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "tailwind-variants",
+    "version": "3.3.1",
+    "license": "MIT",
+    "source": "https://github.com/heroui-inc/tailwind-variants",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "tailwindcss",
+    "version": "4.3.3",
+    "license": "MIT",
+    "source": "https://github.com/tailwindlabs/tailwindcss.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "tapable",
+    "version": "2.3.3",
+    "license": "MIT",
+    "source": "http://github.com/webpack/tapable.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "tiny-inflate",
+    "version": "1.0.3",
+    "license": "MIT",
+    "source": "git://github.com/devongovett/tiny-inflate.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "tinyexec",
+    "version": "1.3.1",
+    "license": "MIT",
+    "source": "git+https://github.com/tinylibs/tinyexec.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "tinyglobby",
+    "version": "0.2.17",
+    "license": "MIT",
+    "source": "git+https://github.com/SuperchupuDev/tinyglobby.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "totalist",
+    "version": "3.0.1",
+    "license": "MIT",
+    "source": "lukeed/totalist",
+    "notice_files": [
+      "license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "tslib",
+    "version": "2.8.1",
+    "license": "0BSD",
+    "source": "https://github.com/Microsoft/tslib.git",
+    "notice_files": [
+      "LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "type-level-regexp",
+    "version": "0.1.17",
+    "license": "MIT",
+    "source": "https://github.com/didavid61202/type-level-regexp.git",
+    "notice_files": [
+      "LICENCE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "typescript",
+    "version": "5.9.3",
+    "license": "Apache-2.0",
+    "source": "https://github.com/microsoft/TypeScript.git",
+    "notice_files": [
+      "LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "ufo",
+    "version": "1.6.4",
+    "license": "MIT",
+    "source": "unjs/ufo",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "uncrypto",
+    "version": "0.1.3",
+    "license": "MIT",
+    "source": "unjs/uncrypto",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "unctx",
+    "version": "3.0.1",
+    "license": "MIT",
+    "source": "unjs/unctx",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "undici",
+    "version": "8.12.3",
+    "license": "MIT",
+    "source": "git+https://github.com/nodejs/undici.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "unhead",
+    "version": "3.4.3",
+    "license": "MIT",
+    "source": "git+https://github.com/unjs/unhead.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "unifont",
+    "version": "0.7.5",
+    "license": "MIT",
+    "source": "git+https://github.com/unjs/unifont.git",
+    "notice_files": [
+      "LICENCE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "unimport",
+    "version": "6.5.0",
+    "license": "MIT",
+    "source": "unjs/unimport",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "unplugin",
+    "version": "2.3.11",
+    "license": "MIT",
+    "source": "git+https://github.com/unjs/unplugin.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "unplugin",
+    "version": "3.4.0",
+    "license": "MIT",
+    "source": "git+https://github.com/unjs/unplugin.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "unplugin-auto-import",
+    "version": "21.1.0",
+    "license": "MIT",
+    "source": "git+https://github.com/unplugin/unplugin-auto-import.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "unplugin-utils",
+    "version": "0.3.2",
+    "license": "MIT",
+    "source": "git+https://github.com/sxzz/unplugin-utils.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "unplugin-vue-components",
+    "version": "32.1.0",
+    "license": "MIT",
+    "source": "https://github.com/unplugin/unplugin-vue-components.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "unstorage",
+    "version": "1.17.6",
+    "license": "MIT",
+    "source": "unjs/unstorage",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "vaul-vue",
+    "version": "0.4.1",
+    "license": "unknown",
+    "source": "https://github.com/Elliot-Alexander/vaul-vue",
+    "supplemental_source": "https://raw.githubusercontent.com/Elliot-Alexander/vaul-vue/main/LICENSE",
+    "notice_files": [
+      "supplemental-upstream:https://raw.githubusercontent.com/Elliot-Alexander/vaul-vue/main/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "verkit",
+    "version": "0.5.0",
+    "license": "MIT",
+    "source": "git+https://github.com/sxzz/verkit.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "vite",
+    "version": "7.3.7",
+    "license": "MIT",
+    "source": "git+https://github.com/vitejs/vite.git",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "vscode-uri",
+    "version": "3.2.0",
+    "license": "MIT",
+    "source": "git+https://github.com/microsoft/vscode-uri.git",
+    "notice_files": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "vue",
+    "version": "3.5.44",
+    "license": "MIT",
+    "source": "git+https://github.com/vuejs/core.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "vue-component-type-helpers",
+    "version": "3.3.13",
+    "license": "MIT",
+    "source": "https://github.com/vuejs/language-tools.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "vue-demi",
+    "version": "0.14.10",
+    "license": "MIT",
+    "source": "https://github.com/antfu/vue-demi.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "vue-router",
+    "version": "4.6.4",
+    "license": "MIT",
+    "source": "git+https://github.com/vuejs/router.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "vue-tsc",
+    "version": "3.3.13",
+    "license": "MIT",
+    "source": "https://github.com/vuejs/language-tools.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "w3c-keyname",
+    "version": "2.2.8",
+    "license": "MIT",
+    "source": "git+https://github.com/marijnh/w3c-keyname.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "webpack-virtual-modules",
+    "version": "0.6.2",
+    "license": "MIT",
+    "source": "git+https://github.com/sysgears/webpack-virtual-modules.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "wheel-gestures",
+    "version": "2.3.0",
+    "license": "MIT",
+    "source": "https://github.com/xiel/wheel-gestures.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "which",
+    "version": "2.0.2",
+    "license": "ISC",
+    "source": "git://github.com/isaacs/node-which.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "y-protocols",
+    "version": "1.0.7",
+    "license": "MIT",
+    "source": "git+https://github.com/yjs/y-protocols.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "yjs",
+    "version": "13.6.33",
+    "license": "MIT",
+    "source": "https://github.com/yjs/yjs.git",
+    "notice_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "Pygments",
+    "version": "2.21.0",
+    "license": "BSD-2-Clause",
+    "source": [
+      "Homepage, https://pygments.org",
+      "Documentation, https://pygments.org/docs",
+      "Source, https://github.com/pygments/pygments",
+      "Bug Tracker, https://github.com/pygments/pygments/issues",
+      "Changelog, https://github.com/pygments/pygments/blob/master/CHANGES"
+    ],
+    "notice_files": [
+      "pygments-2.21.0.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "SQLAlchemy",
+    "version": "2.1.6",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://www.sqlalchemy.org",
+      "Documentation, https://docs.sqlalchemy.org",
+      "Changelog, https://docs.sqlalchemy.org/latest/changelog/index.html",
+      "Source Code, https://github.com/sqlalchemy/sqlalchemy",
+      "Issue Tracker, https://github.com/sqlalchemy/sqlalchemy/issues",
+      "Discussions, https://github.com/sqlalchemy/sqlalchemy/discussions"
+    ],
+    "notice_files": [
+      "sqlalchemy-2.1.6.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "annotated-doc",
+    "version": "0.0.5",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/fastapi/annotated-doc",
+      "Documentation, https://github.com/fastapi/annotated-doc",
+      "Repository, https://github.com/fastapi/annotated-doc",
+      "Issues, https://github.com/fastapi/annotated-doc/issues",
+      "Changelog, https://github.com/fastapi/annotated-doc/release-notes.md"
+    ],
+    "notice_files": [
+      "annotated_doc-0.0.5.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "annotated-types",
+    "version": "0.8.0",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/annotated-types/annotated-types",
+      "Source, https://github.com/annotated-types/annotated-types",
+      "Changelog, https://github.com/annotated-types/annotated-types/releases"
+    ],
+    "notice_files": [
+      "annotated_types-0.8.0.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "anyio",
+    "version": "4.15.1",
+    "license": "MIT",
+    "source": [
+      "Documentation, https://anyio.readthedocs.io/en/latest/",
+      "Changelog, https://anyio.readthedocs.io/en/stable/versionhistory.html",
+      "Source code, https://github.com/agronholm/anyio",
+      "Issue tracker, https://github.com/agronholm/anyio/issues"
+    ],
+    "notice_files": [
+      "anyio-4.15.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "babelfish",
+    "version": "0.6.1",
+    "license": "BSD-3-Clause",
+    "source": [
+      "Repository, https://github.com/Diaoul/babelfish"
+    ],
+    "notice_files": [
+      "babelfish-0.6.1.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "bitarray",
+    "version": "3.12.3",
+    "license": "PSF-2.0",
+    "source": [
+      "https://github.com/ilanschnell/bitarray"
+    ],
+    "notice_files": [
+      "bitarray-3.12.3.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "brotli",
+    "version": "1.2.1",
+    "license": "MIT",
+    "source": [
+      "https://github.com/google/brotli"
+    ],
+    "notice_files": [
+      "brotli-1.2.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "cachedict",
+    "version": "0.0.7",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/cachedict",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/cachedict"
+    ],
+    "notice_files": [
+      "cachedict-0.0.7.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "call_sleep",
+    "version": "0.0.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/call_sleep",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/call_sleep"
+    ],
+    "notice_files": [
+      "call_sleep-0.0.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "certifi",
+    "version": "2026.10.23",
+    "license": "MPL-2.0",
+    "source": [
+      "Source, https://github.com/certifi/python-certifi"
+    ],
+    "notice_files": [
+      "certifi-2026.10.23.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "cffi",
+    "version": "2.1.1",
+    "license": "MIT-0",
+    "source": [
+      "Documentation, https://cffi.readthedocs.io/",
+      "Changelog, https://cffi.readthedocs.io/en/latest/whatsnew.html",
+      "Download, https://github.com/python-cffi/cffi/releases",
+      "Contact, https://groups.google.com/forum/#!forum/python-cffi",
+      "Source Code, https://github.com/python-cffi/cffi",
+      "Issue Tracker, https://github.com/python-cffi/cffi/issues"
+    ],
+    "notice_files": [
+      "cffi-2.1.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "click",
+    "version": "8.5.0",
+    "license": "BSD-3-Clause",
+    "source": [
+      "Changes, https://click.palletsprojects.com/page/changes/",
+      "Chat, https://discord.gg/pallets",
+      "Documentation, https://click.palletsprojects.com/",
+      "Donate, https://palletsprojects.com/donate",
+      "Source, https://github.com/pallets/click/"
+    ],
+    "notice_files": [
+      "click-8.5.0.dist-info/licenses/LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "colorama",
+    "version": "0.4.6",
+    "license": "unknown",
+    "source": [
+      "Homepage, https://github.com/tartley/colorama"
+    ],
+    "notice_files": [
+      "colorama-0.4.6.dist-info/licenses/LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "cryptography",
+    "version": "50.0.2",
+    "license": "Apache-2.0 OR BSD-3-Clause",
+    "source": [
+      "changelog, https://cryptography.io/en/latest/changelog/",
+      "documentation, https://cryptography.io/",
+      "homepage, https://github.com/pyca/cryptography",
+      "issues, https://github.com/pyca/cryptography/issues",
+      "source, https://github.com/pyca/cryptography/"
+    ],
+    "notice_files": [
+      "cryptography-50.0.2.dist-info/licenses/LICENSE",
+      "cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+      "cryptography-50.0.2.dist-info/licenses/LICENSE.BSD"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "defusedxml",
+    "version": "0.7.1",
+    "license": "PSFL",
+    "source": [
+      "https://github.com/tiran/defusedxml"
+    ],
+    "notice_files": [
+      "defusedxml-0.7.1.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "ed2k",
+    "version": "0.0.2.2",
+    "license": "MIT",
+    "source": [
+      "Repository, https://github.com/ChenyangGao/web-mount-packs/tree/main/python-module/ed2k"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "ed2k-0.0.2.2.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "errno2",
+    "version": "0.0.5",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/errno2",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/errno2"
+    ],
+    "notice_files": [
+      "errno2-0.0.5.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "fastapi",
+    "version": "0.161.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/fastapi/fastapi",
+      "Documentation, https://fastapi.tiangolo.com/",
+      "Repository, https://github.com/fastapi/fastapi",
+      "Issues, https://github.com/fastapi/fastapi/issues",
+      "Changelog, https://fastapi.tiangolo.com/release-notes/"
+    ],
+    "notice_files": [
+      "fastapi-0.161.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "filelock",
+    "version": "4.2.4",
+    "license": "MIT",
+    "source": [
+      "Documentation, https://py-filelock.readthedocs.io",
+      "Homepage, https://github.com/tox-dev/py-filelock",
+      "Source, https://github.com/tox-dev/py-filelock",
+      "Tracker, https://github.com/tox-dev/py-filelock/issues"
+    ],
+    "notice_files": [
+      "filelock-4.2.4.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "glob_pattern",
+    "version": "0.0.2",
+    "license": "MIT",
+    "source": [
+      "Repository, https://github.com/ChenyangGao/web-mount-packs/tree/main/python-module/glob_pattern"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "glob_pattern-0.0.2.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "guessit",
+    "version": "3.8.0",
+    "license": "LGPLv3",
+    "source": [
+      "https://guessit-io.github.io/guessit"
+    ],
+    "notice_files": [
+      "guessit-3.8.0.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "h11",
+    "version": "0.16.0",
+    "license": "MIT",
+    "source": [
+      "https://github.com/python-hyper/h11"
+    ],
+    "notice_files": [
+      "h11-0.16.0.dist-info/licenses/LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "http_response",
+    "version": "0.0.9.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/http_response",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/http_response"
+    ],
+    "notice_files": [
+      "http_response-0.0.9.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "httpcore",
+    "version": "1.0.9",
+    "license": "BSD-3-Clause",
+    "source": [
+      "Documentation, https://www.encode.io/httpcore",
+      "Homepage, https://www.encode.io/httpcore/",
+      "Source, https://github.com/encode/httpcore"
+    ],
+    "notice_files": [
+      "httpcore-1.0.9.dist-info/licenses/LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "httpx",
+    "version": "0.28.1",
+    "license": "BSD-3-Clause",
+    "source": [
+      "Changelog, https://github.com/encode/httpx/blob/master/CHANGELOG.md",
+      "Documentation, https://www.python-httpx.org",
+      "Homepage, https://github.com/encode/httpx",
+      "Source, https://github.com/encode/httpx"
+    ],
+    "notice_files": [
+      "httpx-0.28.1.dist-info/licenses/LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "id2dirnode",
+    "version": "0.0.2",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/id2dirnode",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/id2dirnode"
+    ],
+    "notice_files": [
+      "id2dirnode-0.0.2.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "idna",
+    "version": "3.20",
+    "license": "BSD-3-Clause",
+    "source": [
+      "Changelog, https://github.com/kjd/idna/blob/master/HISTORY.md",
+      "Issue tracker, https://github.com/kjd/idna/issues",
+      "Source, https://github.com/kjd/idna"
+    ],
+    "notice_files": [
+      "idna-3.20.dist-info/licenses/LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "iniconfig",
+    "version": "2.3.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/pytest-dev/iniconfig"
+    ],
+    "notice_files": [
+      "iniconfig-2.3.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "integer_tool",
+    "version": "0.0.6.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/integer_tool",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/integer_tool"
+    ],
+    "notice_files": [
+      "integer_tool-0.0.6.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "iter_collect",
+    "version": "0.0.6",
+    "license": "MIT",
+    "source": [
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/iter_collect"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "iter_collect-0.0.6.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "iterdir",
+    "version": "0.0.10.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/iterdir",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/iterdir"
+    ],
+    "notice_files": [
+      "iterdir-0.0.10.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "jh2",
+    "version": "5.0.15",
+    "license": "MIT",
+    "source": [
+      "Changelog, https://github.com/jawah/h2/blob/main/CHANGELOG.rst",
+      "Code, https://github.com/jawah/h2",
+      "Issue tracker, https://github.com/jawah/h2/issues"
+    ],
+    "notice_files": [
+      "jh2-5.0.15.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "multidict",
+    "version": "7.1.0",
+    "license": "Apache-2.0",
+    "source": [
+      "Homepage, https://github.com/aio-libs/multidict",
+      "Chat: Matrix, https://matrix.to/#/#aio-libs:matrix.org",
+      "Chat: Matrix Space, https://matrix.to/#/#aio-libs-space:matrix.org",
+      "CI: GitHub, https://github.com/aio-libs/multidict/actions",
+      "Code of Conduct, https://github.com/aio-libs/.github/blob/master/CODE_OF_CONDUCT.md",
+      "Coverage: codecov, https://codecov.io/github/aio-libs/multidict",
+      "Docs: Changelog, https://multidict.aio-libs.org/en/latest/changes/",
+      "Docs: RTD, https://multidict.aio-libs.org",
+      "GitHub: issues, https://github.com/aio-libs/multidict/issues",
+      "GitHub: repo, https://github.com/aio-libs/multidict"
+    ],
+    "notice_files": [
+      "multidict-7.1.0.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "opentelemetry-api",
+    "version": "1.45.1",
+    "license": "Apache-2.0",
+    "source": [
+      "Homepage, https://github.com/open-telemetry/opentelemetry-python/tree/main/opentelemetry-api",
+      "Repository, https://github.com/open-telemetry/opentelemetry-python"
+    ],
+    "notice_files": [
+      "opentelemetry_api-1.45.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "orjson",
+    "version": "3.13.0",
+    "license": "MPL-2.0 AND (Apache-2.0 OR MIT)",
+    "source": [
+      "changelog, https://github.com/ijl/orjson/blob/master/CHANGELOG.md",
+      "documentation, https://github.com/ijl/orjson",
+      "source, https://github.com/ijl/orjson"
+    ],
+    "notice_files": [
+      "orjson-3.13.0.dist-info/licenses/LICENSE-APACHE",
+      "orjson-3.13.0.dist-info/licenses/LICENSE-MIT",
+      "orjson-3.13.0.dist-info/licenses/LICENSE-MPL-2.0"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "p115cipher",
+    "version": "0.0.6",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/p115client/tree/main/modules/p115cipher",
+      "Repository, https://github.com/ChenyangGao/p115client/tree/main/modules/p115cipher"
+    ],
+    "notice_files": [
+      "p115cipher-0.0.6.dist-info/licenses/LICENSE",
+      "p115cipher-0.0.6.dist-info/licenses/LICENSE_zh"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "p115client",
+    "version": "0.0.9.7.2",
+    "license": "MIT",
+    "source": [
+      "Documentation, https://p115client.readthedocs.io",
+      "Homepage, https://github.com/ChenyangGao/p115client",
+      "Repository, https://github.com/ChenyangGao/p115client"
+    ],
+    "notice_files": [
+      "p115client-0.0.9.7.2.dist-info/licenses/LICENSE",
+      "p115client-0.0.9.7.2.dist-info/licenses/LICENSE_zh"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "p115oss",
+    "version": "0.1.2",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/p115client/tree/main/modules/p115oss",
+      "Repository, https://github.com/ChenyangGao/p115client/tree/main/modules/p115oss"
+    ],
+    "notice_files": [
+      "p115oss-0.1.2.dist-info/licenses/LICENSE",
+      "p115oss-0.1.2.dist-info/licenses/LICENSE_zh"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "p115pickcode",
+    "version": "0.0.5.4",
+    "license": "MIT",
+    "source": [
+      "Repository, https://github.com/ChenyangGao/p115client/tree/main/modules/p115pickcode"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "p115pickcode-0.0.5.4.dist-info/LICENSE",
+      "p115pickcode-0.0.5.4.dist-info/LICENSE_zh"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "packaging",
+    "version": "26.3",
+    "license": "Apache-2.0 OR BSD-2-Clause",
+    "source": [
+      "Documentation, https://packaging.pypa.io/",
+      "Source, https://github.com/pypa/packaging"
+    ],
+    "notice_files": [
+      "packaging-26.3.dist-info/licenses/LICENSE",
+      "packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "packaging-26.3.dist-info/licenses/LICENSE.BSD"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pip",
+    "version": "25.1.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://pip.pypa.io/",
+      "Documentation, https://pip.pypa.io",
+      "Source, https://github.com/pypa/pip",
+      "Changelog, https://pip.pypa.io/en/stable/news/"
+    ],
+    "notice_files": [
+      "pip-25.1.1.dist-info/licenses/LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pluggy",
+    "version": "1.7.0",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/pytest-dev/pluggy",
+      "Documentation, https://pluggy.readthedocs.io/",
+      "Changelog, https://pluggy.readthedocs.io/en/latest/changelog.html",
+      "Repository, https://github.com/pytest-dev/pluggy",
+      "Issues, https://github.com/pytest-dev/pluggy/issues",
+      "Funding, https://tidelift.com/subscription/pkg/pypi-pluggy"
+    ],
+    "notice_files": [
+      "pluggy-1.7.0.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "posixpatht",
+    "version": "0.0.4",
+    "license": "MIT",
+    "source": [
+      "Repository, https://github.com/ChenyangGao/web-mount-packs/tree/main/python-module/posixpatht"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "posixpatht-0.0.4.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "propcache",
+    "version": "0.5.4",
+    "license": "Apache-2.0",
+    "source": [
+      "Chat: Matrix, https://matrix.to/#/#aio-libs:matrix.org",
+      "Chat: Matrix Space, https://matrix.to/#/#aio-libs-space:matrix.org",
+      "CI: GitHub Workflows, https://github.com/aio-libs/propcache/actions?query=branch:master",
+      "Code of Conduct, https://github.com/aio-libs/.github/blob/master/CODE_OF_CONDUCT.md",
+      "Coverage: codecov, https://codecov.io/github/aio-libs/propcache",
+      "Docs: Changelog, https://propcache.readthedocs.io/en/latest/changes/",
+      "Docs: RTD, https://propcache.readthedocs.io",
+      "GitHub: issues, https://github.com/aio-libs/propcache/issues",
+      "GitHub: repo, https://github.com/aio-libs/propcache"
+    ],
+    "notice_files": [
+      "propcache-0.5.4.dist-info/licenses/LICENSE",
+      "propcache-0.5.4.dist-info/licenses/NOTICE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "psycopg",
+    "version": "3.3.6",
+    "license": "LGPL-3.0-only",
+    "source": [
+      "Homepage, https://psycopg.org/",
+      "Documentation, https://psycopg.org/psycopg3/docs/",
+      "Changes, https://psycopg.org/psycopg3/docs/news.html",
+      "Code, https://github.com/psycopg/psycopg",
+      "Issue Tracker, https://github.com/psycopg/psycopg/issues",
+      "Funding, https://github.com/sponsors/dvarrazzo"
+    ],
+    "notice_files": [
+      "psycopg-3.3.6.dist-info/licenses/LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "psycopg-binary",
+    "version": "3.3.6",
+    "license": "LGPL-3.0-only",
+    "source": [
+      "Homepage, https://psycopg.org/",
+      "Documentation, https://psycopg.org/psycopg3/docs/",
+      "Changes, https://psycopg.org/psycopg3/docs/news.html",
+      "Code, https://github.com/psycopg/psycopg",
+      "Issue Tracker, https://github.com/psycopg/psycopg/issues",
+      "Funding, https://github.com/sponsors/dvarrazzo"
+    ],
+    "notice_files": [
+      "psycopg_binary-3.3.6.dist-info/licenses/LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pycparser",
+    "version": "3.12",
+    "license": "BSD-3-Clause",
+    "source": [
+      "Homepage, https://github.com/eliben/pycparser"
+    ],
+    "notice_files": [
+      "pycparser-3.12.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pycryptodome",
+    "version": "4.1.0",
+    "license": "BSD-2-Clause AND Unlicense AND MIT",
+    "source": [
+      "Homepage, https://www.pycryptodome.org",
+      "Source, https://github.com/Legrandin/pycryptodome/",
+      "Changelog, https://www.pycryptodome.org/src/changelog"
+    ],
+    "notice_files": [
+      "pycryptodome-4.1.0.dist-info/licenses/LICENSE.rst",
+      "pycryptodome-4.1.0.dist-info/licenses/src/mldsa-native/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pydantic",
+    "version": "2.14.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/pydantic/pydantic",
+      "Documentation, https://pydantic.dev/docs/validation/latest/get-started/",
+      "Funding, https://github.com/sponsors/samuelcolvin",
+      "Source, https://github.com/pydantic/pydantic",
+      "Changelog, https://pydantic.dev/docs/validation/latest/get-started/changelog/"
+    ],
+    "notice_files": [
+      "pydantic-2.14.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pydantic_core",
+    "version": "2.50.1",
+    "license": "MIT",
+    "source": [
+      "Funding, https://github.com/sponsors/samuelcolvin",
+      "Homepage, https://github.com/pydantic",
+      "Source, https://github.com/pydantic/pydantic/tree/main/pydantic-core"
+    ],
+    "notice_files": [
+      "pydantic_core-2.50.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pytest",
+    "version": "9.1.1",
+    "license": "MIT",
+    "source": [
+      "Changelog, https://docs.pytest.org/en/stable/changelog.html",
+      "Contact, https://docs.pytest.org/en/stable/contact.html",
+      "Funding, https://docs.pytest.org/en/stable/sponsor.html",
+      "Homepage, https://docs.pytest.org/en/latest/",
+      "Source, https://github.com/pytest-dev/pytest",
+      "Tracker, https://github.com/pytest-dev/pytest/issues"
+    ],
+    "notice_files": [
+      "pytest-9.1.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-argtools",
+    "version": "0.0.4",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-argtools",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-argtools"
+    ],
+    "notice_files": [
+      "python_argtools-0.0.4.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-asynctools",
+    "version": "0.2.2",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-asynctools",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-asynctools"
+    ],
+    "notice_files": [
+      "python_asynctools-0.2.2.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-concurrenttools",
+    "version": "0.1.9",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-concurrenttools",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-concurrenttools"
+    ],
+    "notice_files": [
+      "python_concurrenttools-0.1.9.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-cookietools",
+    "version": "0.1.5",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-cookietools",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-cookietools"
+    ],
+    "notice_files": [
+      "python_cookietools-0.1.5.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-dateutil",
+    "version": "3.0.0",
+    "license": "Dual License",
+    "source": [
+      "Documentation, https://dateutil.readthedocs.io/en/stable/",
+      "Source, https://github.com/dateutil/dateutil"
+    ],
+    "notice_files": [
+      "python_dateutil-3.0.0.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-decotools",
+    "version": "0.0.4",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-decotools",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-decotools"
+    ],
+    "notice_files": [
+      "python_decotools-0.0.4.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-dictattr",
+    "version": "0.0.5",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-dictattr",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-dictattr"
+    ],
+    "notice_files": [
+      "python_dictattr-0.0.5.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-dicttools",
+    "version": "0.0.5",
+    "license": "MIT",
+    "source": [
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-dicttools"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "python_dicttools-0.0.5.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-download",
+    "version": "0.0.4.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-download",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-download"
+    ],
+    "notice_files": [
+      "python_download-0.0.4.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-encode_uri",
+    "version": "0.0.3",
+    "license": "MIT",
+    "source": [
+      "Repository, https://github.com/ChenyangGao/web-mount-packs/tree/main/python-module/encode_uri"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "python_encode_uri-0.0.3.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-ensure",
+    "version": "0.0.2",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-ensure",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-ensure"
+    ],
+    "notice_files": [
+      "python_ensure-0.0.2.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-filewrap",
+    "version": "0.3.1.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-filewrap",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-filewrap"
+    ],
+    "notice_files": [
+      "python_filewrap-0.3.1.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-hashtools",
+    "version": "0.0.6",
+    "license": "MIT",
+    "source": [
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-hashtools"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "python_hashtools-0.0.6.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-http_request",
+    "version": "0.1.7.2",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-http_request",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-http_request"
+    ],
+    "notice_files": [
+      "python_http_request-0.1.7.2.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-httpfile",
+    "version": "0.0.6.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-httpfile",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-httpfile"
+    ],
+    "notice_files": [
+      "python_httpfile-0.0.6.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-iterutils",
+    "version": "0.3.1.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-iterutils",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-iterutils"
+    ],
+    "notice_files": [
+      "python_iterutils-0.3.1.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-property",
+    "version": "0.0.3",
+    "license": "MIT",
+    "source": [
+      "Repository, https://github.com/ChenyangGao/web-mount-packs/tree/main/python-module/python-property"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "python_property-0.0.3.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-startfile",
+    "version": "0.0.3",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-startfile",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-startfile"
+    ],
+    "notice_files": [
+      "python_startfile-0.0.3.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-temporary",
+    "version": "0.0.1",
+    "license": "MIT",
+    "source": [
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-temporary"
+    ],
+    "notice_files": [
+      "LICENSE",
+      "python_temporary-0.0.1.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-texttools",
+    "version": "0.0.6",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-texttools",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-texttools"
+    ],
+    "notice_files": [
+      "python_texttools-0.0.6.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-undefined",
+    "version": "0.0.4",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/python-undefined",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/python-undefined"
+    ],
+    "notice_files": [
+      "python_undefined-0.0.4.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "qh3",
+    "version": "2.0.4",
+    "license": "unknown",
+    "source": [
+      "documentation, https://qh3.readthedocs.io/",
+      "homepage, https://github.com/jawah/qh3"
+    ],
+    "notice_files": [
+      "qh3-2.0.4.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "qrcode",
+    "version": "8.2",
+    "license": "BSD",
+    "source": [
+      "https://github.com/lincolnloop/python-qrcode"
+    ],
+    "notice_files": [
+      "qrcode-8.2.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "rebulk",
+    "version": "6.0.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/Toilal/rebulk/"
+    ],
+    "notice_files": [
+      "rebulk-6.0.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "ruff",
+    "version": "0.17.2",
+    "license": "MIT",
+    "source": [
+      "Changelog, https://github.com/astral-sh/ruff/blob/main/CHANGELOG.md",
+      "Documentation, https://docs.astral.sh/ruff/",
+      "Repository, https://github.com/astral-sh/ruff"
+    ],
+    "notice_files": [
+      "ruff-0.17.2.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "six",
+    "version": "1.17.0",
+    "license": "MIT",
+    "source": [
+      "https://github.com/benjaminp/six"
+    ],
+    "notice_files": [
+      "six-1.17.0.dist-info/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "socket_keepalive",
+    "version": "0.0.1",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/socket_keepalive",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/socket_keepalive"
+    ],
+    "notice_files": [
+      "socket_keepalive-0.0.1.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "sqlitetools",
+    "version": "0.1.3",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/sqlitetools",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/sqlitetools"
+    ],
+    "notice_files": [
+      "sqlitetools-0.1.3.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "sqlparse",
+    "version": "0.6.0",
+    "license": "unknown",
+    "source": [
+      "Home, https://github.com/andialbrecht/sqlparse",
+      "Documentation, https://sqlparse.readthedocs.io/",
+      "Release Notes, https://sqlparse.readthedocs.io/en/latest/changes.html",
+      "Source, https://github.com/andialbrecht/sqlparse",
+      "Tracker, https://github.com/andialbrecht/sqlparse/issues"
+    ],
+    "notice_files": [
+      "sqlparse-0.6.0.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "starlette",
+    "version": "1.9.0",
+    "license": "BSD-3-Clause",
+    "source": [
+      "Homepage, https://github.com/Kludex/starlette",
+      "Documentation, https://starlette.dev/",
+      "Changelog, https://starlette.dev/release-notes/",
+      "Funding, https://github.com/sponsors/Kludex",
+      "Source, https://github.com/Kludex/starlette"
+    ],
+    "notice_files": [
+      "starlette-1.9.0.dist-info/licenses/LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "typing-inspection",
+    "version": "0.4.4",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/pydantic/typing-inspection",
+      "Documentation, https://pydantic.github.io/typing-inspection/dev/",
+      "Source, https://github.com/pydantic/typing-inspection",
+      "Changelog, https://github.com/pydantic/typing-inspection/blob/main/HISTORY.md"
+    ],
+    "notice_files": [
+      "typing_inspection-0.4.4.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "typing_extensions",
+    "version": "4.16.0",
+    "license": "PSF-2.0",
+    "source": [
+      "Bug Tracker, https://github.com/python/typing_extensions/issues",
+      "Changes, https://github.com/python/typing_extensions/blob/main/CHANGELOG.md",
+      "Documentation, https://typing-extensions.readthedocs.io/",
+      "Home, https://github.com/python/typing_extensions",
+      "Q & A, https://github.com/python/typing/discussions",
+      "Repository, https://github.com/python/typing_extensions"
+    ],
+    "notice_files": [
+      "typing_extensions-4.16.0.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "tzdata",
+    "version": "2026.5",
+    "license": "Apache-2.0",
+    "source": [
+      "Bug Reports, https://github.com/python/tzdata/issues",
+      "Source, https://github.com/python/tzdata",
+      "Documentation, https://tzdata.python.org"
+    ],
+    "notice_files": [
+      "tzdata-2026.5.dist-info/licenses/LICENSE",
+      "tzdata-2026.5.dist-info/licenses/licenses/LICENSE_APACHE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "urllib3-future",
+    "version": "2.25.903",
+    "license": "MIT",
+    "source": [
+      "Changelog, https://github.com/jawah/urllib3.future/blob/main/CHANGES.rst",
+      "Documentation, https://urllib3future.readthedocs.io",
+      "Code, https://github.com/jawah/urllib3.future",
+      "Issue tracker, https://github.com/jawah/urllib3.future/issues"
+    ],
+    "notice_files": [
+      "urllib3_future-2.25.903.dist-info/licenses/LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "urllib3_future_request",
+    "version": "0.0.2",
+    "license": "MIT",
+    "source": [
+      "Homepage, https://github.com/ChenyangGao/python-modules/tree/main/urllib3_future_request",
+      "Repository, https://github.com/ChenyangGao/python-modules/tree/main/urllib3_future_request"
+    ],
+    "notice_files": []
+  },
+  {
+    "ecosystem": "python",
+    "name": "uvicorn",
+    "version": "0.54.0",
+    "license": "BSD-3-Clause",
+    "source": [
+      "Changelog, https://uvicorn.dev/release-notes",
+      "Funding, https://github.com/sponsors/Kludex",
+      "Homepage, https://uvicorn.dev/",
+      "Source, https://github.com/Kludex/uvicorn"
+    ],
+    "notice_files": [
+      "uvicorn-0.54.0.dist-info/licenses/LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "wcwidth",
+    "version": "0.9.3",
+    "license": "unknown",
+    "source": [
+      "Homepage, https://github.com/jquast/wcwidth"
+    ],
+    "notice_files": [
+      "wcwidth-0.9.3.dist-info/licenses/LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "yarl",
+    "version": "1.25.1",
+    "license": "Apache-2.0",
+    "source": [
+      "Chat: Matrix, https://matrix.to/#/#aio-libs:matrix.org",
+      "Chat: Matrix Space, https://matrix.to/#/#aio-libs-space:matrix.org",
+      "CI: GitHub Workflows, https://github.com/aio-libs/yarl/actions?query=branch:master",
+      "Code of Conduct, https://github.com/aio-libs/.github/blob/master/CODE_OF_CONDUCT.md",
+      "Coverage: codecov, https://codecov.io/github/aio-libs/yarl",
+      "Docs: Changelog, https://yarl.aio-libs.org/en/latest/changes/",
+      "Docs: RTD, https://yarl.aio-libs.org",
+      "GitHub: issues, https://github.com/aio-libs/yarl/issues",
+      "GitHub: repo, https://github.com/aio-libs/yarl"
+    ],
+    "notice_files": [
+      "yarl-1.25.1.dist-info/licenses/LICENSE",
+      "yarl-1.25.1.dist-info/licenses/NOTICE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "zstandard",
+    "version": "0.25.0",
+    "license": "BSD-3-Clause",
+    "source": [
+      "Homepage, https://github.com/indygreg/python-zstandard",
+      "Documentation, https://python-zstandard.readthedocs.io/en/latest/"
+    ],
+    "notice_files": [
+      "zstandard-0.25.0.dist-info/licenses/LICENSE"
+    ]
+  }
+]

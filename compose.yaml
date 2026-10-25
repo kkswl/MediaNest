@@ -1,0 +1,33 @@
+services:
+  web:
+    build: .
+    command: ["python", "-m", "app.cli", "serve", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      DATABASE_URL: sqlite:///data/yingji.db
+      ENABLE_LIVE_115: "no"
+      ENABLE_TMDB: "no"
+      STATE_DIR: data
+      FAILURE_THRESHOLD: "3"
+      SCAN_PAGE_SIZE: "50"
+      REQUEST_INTERVAL: "2"
+    volumes:
+      - yingji-data:/srv/yingji/data
+    restart: unless-stopped
+  worker:
+    build: .
+    command: ["python", "-m", "app.cli", "worker"]
+    environment:
+      DATABASE_URL: sqlite:///data/yingji.db
+      ENABLE_LIVE_115: "no"
+      ENABLE_TMDB: "no"
+      STATE_DIR: data
+      FAILURE_THRESHOLD: "3"
+      SCAN_PAGE_SIZE: "50"
+      REQUEST_INTERVAL: "2"
+    volumes:
+      - yingji-data:/srv/yingji/data
+    restart: unless-stopped
+volumes:
+  yingji-data:
