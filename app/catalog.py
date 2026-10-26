@@ -3,6 +3,7 @@ from sqlalchemy import String, func, or_, select
 from .db import Collection, Node, Person, Source, Variant, Work, WorkCollection, WorkPerson
 from .health import effective_health
 from .posters import select_poster
+from .security import share_link
 
 
 def valid_variants():
@@ -37,7 +38,11 @@ def variant_dict(db, variant, work):
     override = work.info.get("path_overrides", {}).get(str(variant.id), "")
     return {"id": variant.id, "source_id": source.id, "node_id": node.id, "name": node.name,
             "path": override or node.path, "original_path": node.path, "path_corrected": bool(override),
-            "size": node.size, "share_url": source.url, "access_code": source.access_code,
+            "size": node.size, "share_url": share_link(source), "access_code": source.access_code,
+            "is_demo": source.adapter == "mock" or source.code in ("demoa", "demob", "demotv"),
+            "share_health": source.health, "share_checked_at": source.checked_at,
+            "node_health": node.health, "node_kind": "directory" if node.is_dir else "file",
+            "web_page_status": "not_verified",
             "source_title": source.title, "source_access_status": source.access_status,
             "health": effective_health(db, source, node),
             "checked_at": node.checked_at, "attributes": variant.attributes, "season": variant.season,

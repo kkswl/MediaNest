@@ -3,13 +3,13 @@ from .db import Node,Variant,Work
 from .identify_impl import identify_directory as base
 from .metadata_links import media_nodes,update_links
 from .posters import directory_poster,image_url,observe_poster
-def identify_directory(db,source,directory,readers,tmdb,media_node_id=None):
+def identify_directory(db,source,directory,readers,tmdb,media_node_id=None,local_only=False):
  if media_node_id is None:
-  base(db,source,directory,readers,tmdb,None)
+  base(db,source,directory,readers,tmdb,None,local_only)
   ids=[n.id for n in db.scalars(media_nodes(source.id,directory)).all()]
-  for ident in ids:identify_directory(db,source,directory,readers,tmdb,ident)
+  for ident in ids:identify_directory(db,source,directory,readers,tmdb,ident,local_only)
   return
- base(db,source,directory,readers,tmdb,media_node_id)
+ base(db,source,directory,readers,tmdb,media_node_id,local_only)
  node=db.get(Node,media_node_id);var=db.scalar(select(Variant).where(Variant.node_id==media_node_id))
  if not node or not var:return
  work=db.get(Work,var.work_id);info=dict(work.info);links=list(info.get("collection_links",[]));c=info.get("collection")

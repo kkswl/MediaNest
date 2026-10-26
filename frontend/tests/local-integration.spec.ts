@@ -8,6 +8,10 @@ test("local backend integration with synthetic sources only", async ({
     "需要先按 README 初始化本地模拟数据库并运行 8000 API；不连接真实115",
   );
   const remoteRequests: string[] = [];
+  await page.route("**/*", route => {
+    const url = new URL(route.request().url());
+    return url.origin === "http://127.0.0.1:5173" ? route.continue() : route.abort();
+  });
   const pageErrors: string[] = [];
   page.on("request", (request) => {
     if (
@@ -19,14 +23,14 @@ test("local backend integration with synthetic sources only", async ({
   page.on("pageerror", (error) => pageErrors.push(error.message));
   await page.goto("/");
   await expect(page.locator(".work-card").first()).toBeVisible();
-  await expect(page.getByText("本地模拟资料", { exact: false })).toBeVisible();
+  await expect(page.getByText("自动真实读取已关闭", { exact: false })).toBeVisible();
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,
     ),
   ).toBeTruthy();
   await page.screenshot({
-    path: `artifacts/catalog-${testInfo.project.name}.png`,
+    path: testInfo.outputPath(`catalog-${testInfo.project.name}.png`),
     fullPage: true,
   });
   await page.locator(".work-card").first().click();
@@ -42,7 +46,7 @@ test("local backend integration with synthetic sources only", async ({
   await page.getByRole("button", { name: "提交审核", exact: true }).click();
   await expect(page.getByRole("status")).toContainText("建议已提交");
   await page.screenshot({
-    path: `artifacts/detail-${testInfo.project.name}.png`,
+    path: testInfo.outputPath(`detail-${testInfo.project.name}.png`),
     fullPage: true,
   });
   await page.goto("/admin");
@@ -87,7 +91,7 @@ test("local backend integration with synthetic sources only", async ({
   await page.getByRole("button", { name: "解析并预览" }).click();
   await expect(page.locator(".preview-list article")).toHaveCount(2);
   await page.screenshot({
-    path: `artifacts/import-${testInfo.project.name}.png`,
+    path: testInfo.outputPath(`import-${testInfo.project.name}.png`),
     fullPage: true,
   });
   expect(remoteRequests).toEqual([]);

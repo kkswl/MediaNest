@@ -39,7 +39,7 @@ def test_public_catalog_paths_and_metadata_filters(api):
     detail = public.get(f"/api/works/{items[0]['id']}").json()
     assert len(detail["variants"]) == 3
     assert all(v["path"].startswith("林舟作品合集/星海系列合集/") for v in detail["variants"])
-    assert all(v["share_url"].startswith("https://115.com/s/demoa") for v in detail["variants"])
+    assert all(v["share_url"] == "" and v["is_demo"] for v in detail["variants"])
     assert all(v["access_code"] == "aaaa" for v in detail["variants"])
     people = public.get("/api/people").json()["items"]
     collections = public.get("/api/collections").json()["items"]

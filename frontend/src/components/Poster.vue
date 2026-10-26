@@ -49,8 +49,9 @@ function fail() {
         work.title
       }}</strong
       ><span class="poster-year"
-        >{{ work.year || "年份待完善" }} · 目录封面</span
+        >{{ work.year || "年份待完善" }} · {{ failed ? "海报加载失败" : "暂无公开海报" }}</span
       >
+      <span class="small muted">{{ failed ? "图片不可访问，已使用占位封面" : (work.info?.poster_placeholder_reason || "未提供可用公开海报地址") }}</span>
     </div>
     <slot />
   </div>

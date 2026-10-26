@@ -16,7 +16,13 @@
 
 上述按需扫描仅保留为模拟来源的旧 API 兼容行为。当前目录树组件只请求缓存数据；真实来源的 GET 即使携带 refresh 也不会创建扫描。搜索不再自动安排真实健康读取，需管理员显式发起复检。
 
-新增 `directory_preview`：管理员对自己来源中已记录的目录调用 `POST /api/admin/sources/{source_id}/directories/{node_id}/scan`，服务端验证节点类型、完整祖先路径和所有权，将范围固定在 Job。worker 在领取及读取前复核范围和唯一扫描任务标识；只读取直接子项，最多两次目录请求，不需要关闭 LIVE_ROOT_ONLY。事务中先用比较交换更新 Job 预算再进行 I/O；暂停、崩溃、重试均不重置。返回 pages_read/nodes_read 是成功提交的页和节点，scan_requests 是已预留的请求（包括失败/崩溃），truncated 表示范围内未读完。真实模式不创建识别任务；模拟模式可解析虚构 NFO 完成识别闭环。
+`directory_preview`：管理员对自己来源中已记录的目录调用 `POST /api/admin/sources/{source_id}/directories/{node_id}/scan`，服务端验证节点类型、完整祖先路径和所有权，将范围固定在 Job。worker 在领取及读取前复核范围和唯一扫描任务标识；只读取直接子项，最多两次目录请求，不需要关闭 LIVE_ROOT_ONLY。事务中先用比较交换更新 Job 预算再进行 I/O；暂停、崩溃、重试均不重置。返回 pages_read/nodes_read 是成功提交的页和节点，scan_requests 是已预留的请求（包括失败/崩溃），truncated 表示范围内未读完。
+
+2026-10-26 修复：真实指定目录在成功完成限页读取后，按 scan.payload.seen 中本次实际返回的媒体节点排本地识别任务，双重校验来源/父目录/节点/完成页。真实识别强制 local_only，跳过 NFO 和 TMDB，不递归、不获取内容。已有同作品元数据及人工锁定保留；同源同目录的明确名称/年份或剧集名称/季集可暂时聚合版本，始终 review，禁止跨来源仅凭名称合并。模拟模式继续使用虚构 NFO。
+
+扫描错误也通过 record_health 持久化：根目录失败记录分享健康，指定目录失败只记录该目录健康。uncertain 类错误不增加 missing 次数。API 版本字段分别给出 share_health、node_health、node_kind 和 web_page_status=not_verified，不把目录接口成功当网页验证。mock 版本不公开可点击 share_url；真实链接根据固定分享码和当前访问码构造，原始 URL 不覆盖。
+
+`scripts/verify_scoped.py` 只用于新增人类授权的单来源已有目录回归，通过正常登录、目录索引和复检 API 建任务。唯一同步 worker 限定 job_id/task_id，不领取或恢复无关任务。STATE_DIR/verification 下的运行账本在实际 HTTP 前预留预算（两次指定目录、一次入口健康，不读根目录）；错误后停止，重启不得清空或更换运行 ID 来重获额度。脚本不读取 Cookie/NFO/图片/媒体，不调用 TMDB。账本只含本地 ID、计数和状态，不含分享网址或访问码。
 
 NFO 只在内存解析，数据库只保存结构化字段、来源和人工锁定字段。强 ID 才能跨来源合并；无把握的条目标为待确认。ISO/BDMV 作为作品版本，BDMV/STREAM 子文件不生成条目。公开海报只接受审核过的 HTTPS 域名。
 

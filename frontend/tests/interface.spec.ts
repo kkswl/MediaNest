@@ -20,6 +20,7 @@ const variants = [
   {
     id: 1,
     source_id: 1,
+    is_demo: true,
     node_id: 10,
     path: "电影/山海之间 (2024)/4K/山海之间.mkv",
     name: "山海之间.2024.4K.mkv",
@@ -40,6 +41,7 @@ const variants = [
   {
     id: 2,
     source_id: 2,
+    is_demo: true,
     node_id: 11,
     path: "合集/山海之间/BDMV",
     name: "山海之间 原盘",
@@ -260,6 +262,8 @@ test("detail preserves versions and submits targeted correction", async ({
   );
   await expect(page.getByText('公开目录', { exact: true })).toBeVisible();
   await expect(page.getByText('需要账号凭据', { exact: true })).toBeVisible();
+  await expect(page.getByText('演示资源 · 虚构分享不提供外链', { exact: true })).toHaveCount(2);
+  await expect(page.getByRole('link', { name: '打开原分享' })).toHaveCount(0);
   await page.getByRole("button", { name: "提交资料纠错" }).click();
   await page.getByLabel("正确年份").fill("2023");
   const sent = page.waitForRequest(
@@ -271,6 +275,21 @@ test("detail preserves versions and submits targeted correction", async ({
     changes: { year: 2023 },
   });
   await expect(page.getByRole("status")).toContainText("建议已提交");
+  await noOverflow(page);
+});
+
+test("poster failures and live verification levels are explicit", async ({ page }) => {
+  await mock(page);
+  await page.route("**/api/works/1", route => route.fulfill({ json: {
+    ...work, info: { poster: "https://image.tmdb.org/t/p/w500/synthetic.jpg" },
+    variants: [{ ...variants[0], is_demo: false, share_health: "healthy", node_health: "unchecked",
+      node_kind: "file", web_page_status: "not_verified", share_url: "https://115cdn.com/s/synthetic?password=aaaa" }],
+  } }));
+  await page.goto("/works/1");
+  await expect(page.getByText("海报加载失败", { exact: false })).toBeVisible();
+  await expect(page.getByText("图片不可访问，已使用占位封面", { exact: true })).toBeVisible();
+  await expect(page.getByText("未验证，目录接口可读不代表网页一定可打开", { exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: '打开原分享' })).toHaveAttribute('href', 'https://115cdn.com/s/synthetic?password=aaaa');
   await noOverflow(page);
 });
 test("backend source tree, import preview, and task controls", async ({

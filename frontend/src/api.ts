@@ -75,6 +75,7 @@ export const states: Record<string, string> = {
   healthy: "可用",
   valid: "可用",
   unknown: "未检测",
+  unchecked: "未检测",
   pending_recheck: "待复检",
   recheck: "待复检",
   missing: "确认失效",

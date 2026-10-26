@@ -363,6 +363,7 @@ function attributes(v: Row) {
           {{ group }}<span class="heading-count">{{ variants.length }} 个</span>
         </h3>
         <article v-for="v in variants" :key="v.id" class="version-card">
+          <p v-if="v.is_demo" class="small muted">演示资源 · 虚构分享不提供外链</p>
           <div class="version-top">
             <h4>{{ v.name || v.resource_group || "资源版本" }}</h4>
             <span class="health-badge" :data-state="v.health">{{
@@ -427,13 +428,25 @@ function attributes(v: Row) {
               </dd>
             </div>
             <div>
-              <dt>最近检测</dt>
+              <dt>节点最近检测</dt>
               <dd>{{ date(v.checked_at) }}</dd>
+            </div>
+            <div v-if="!v.is_demo">
+              <dt>分享入口检测</dt>
+              <dd>{{ label(v.share_health || 'unchecked') }} · {{ date(v.share_checked_at) }}</dd>
+            </div>
+            <div v-if="!v.is_demo">
+              <dt>{{ v.node_kind === 'directory' ? '目录存在性' : '文件存在性' }}</dt>
+              <dd>{{ label(v.node_health || 'unchecked') }}（目录接口记录，非媒体实测）</dd>
+            </div>
+            <div v-if="!v.is_demo">
+              <dt>115 网页打开状态</dt>
+              <dd>未验证，目录接口可读不代表网页一定可打开</dd>
             </div>
           </dl>
           <div class="version-actions">
             <UButton
-              v-if="safeURL(v.share_url)"
+              v-if="!v.is_demo && safeURL(v.share_url)"
               :href="safeURL(v.share_url)"
               target="_blank"
               rel="noopener noreferrer"
@@ -446,6 +459,7 @@ function attributes(v: Row) {
               @click="copy(v.path)"
               >复制完整路径</UButton
             ><UButton
+              v-if="!v.is_demo && safeURL(v.share_url)"
               color="neutral"
               variant="ghost"
               @click="

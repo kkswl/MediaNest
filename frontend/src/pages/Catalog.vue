@@ -104,7 +104,7 @@ onMounted(async () => {
   </section>
   <div v-if="stats.mock" class="demo-strip">
     <UIcon name="i-lucide-flask-conical" /><span
-      >本地模拟资料 · 未扫描真实 115 分享，抽象封面不是官方海报</span
+      >自动真实读取已关闭 · 演示资源不提供外链；占位封面不是官方海报。首页仅统计已审核公开作品，不含来源目录与待审核作品。</span
     >
   </div>
   <section class="catalog-controls" aria-label="资源搜索与筛选">

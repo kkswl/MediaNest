@@ -61,14 +61,18 @@ def validate_directory_task(db, source, job, task):
             if (task.target != node.remote_id or task.payload.get("path") != node.path
                     or task.dedupe_key != f"job:{job.id}:scan:{node.remote_id}"):
                 raise ValueError("任务目标超出指定目录")
-        elif source.adapter == "mock" and task.kind == "identify":
-            if task.target != node.remote_id:
-                raise ValueError("模拟识别超出指定目录")
-        elif source.adapter == "mock" and task.kind == "identify_media":
-            media = db.get(Node, int(task.target))
-            if (not media or media.source_id != source.id or media.parent_remote_id != node.remote_id
-                    or task.payload.get("directory") != node.remote_id):
-                raise ValueError("模拟识别节点超出指定目录")
+        elif task.kind in ("identify", "identify_media"):
+            scan = db.scalar(select(Task).where(Task.job_id == job.id, Task.kind == "scan"))
+            if not scan or scan.status != "done" or job.pages_read < 1:
+                raise ValueError("目录分页尚未成功完成")
+            if task.kind == "identify" and task.target != node.remote_id:
+                raise ValueError("识别超出指定目录")
+            if task.kind == "identify_media":
+                media = db.get(Node, int(task.target))
+                if (not media or media.source_id != source.id or media.parent_remote_id != node.remote_id
+                        or media.remote_id not in scan.payload.get("seen", [])
+                        or task.payload.get("directory") != node.remote_id):
+                    raise ValueError("识别节点超出指定目录实际返回范围")
         else:
             raise ValueError("范围索引禁止此类读取")
     except (ValueError, TypeError) as exc:

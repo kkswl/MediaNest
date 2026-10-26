@@ -49,6 +49,7 @@ def select_poster(info, locked=(), hosts=()):
         c["kind"] == "external" or (c["kind"] == "legacy_unknown" and public_image(c["url"])))), {})
     result.update(poster=chosen.get("url", ""), poster_source=chosen.get("kind", "placeholder"),
                   poster_locked=manual, poster_candidates=candidates,
+                  poster_placeholder_reason="" if chosen.get("url") else "未找到通过白名单校验的公开海报地址",
                   fallback_poster=fallback.get("url", ""), fallback_poster_source=fallback.get("kind", ""))
     # Legacy frontend aliases must not bypass the same URL policy.
     for key in ("poster_public_url", "poster_url", "tmdb_poster"):

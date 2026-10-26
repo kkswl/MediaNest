@@ -1,0 +1,31 @@
+# Explicit image/volume selection prevents accidentally creating a fresh empty library.
+# Local preview only. Never enables a live/background worker.
+services:
+  web:
+    image: ${MEDIANEST_IMAGE:?Select the verified local image}
+    pull_policy: never
+    command: ["python", "-m", "app.cli", "serve", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "127.0.0.1:${MEDIANEST_PORT:-18080}:8000"
+    environment:
+      DATABASE_URL: sqlite:///data/verify.db
+      STATE_DIR: data
+      ENABLE_LIVE_115: "no"
+      ENABLE_TMDB: "no"
+      LIVE_ROOT_ONLY: "yes"
+      REQUEST_INTERVAL: "2"
+      SCAN_PAGE_SIZE: "50"
+      TMDB_TOKEN: ""
+      PUBLIC_SOURCE_IMAGE_HOSTS: ""
+    volumes:
+      - preview-data:/srv/yingji/data
+    restart: "no"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/stats', timeout=5).close()"]
+      interval: 10s
+      timeout: 7s
+      retries: 5
+volumes:
+  preview-data:
+    external: true
+    name: ${MEDIANEST_VOLUME:?Select the backed-up existing volume or an isolated test volume}

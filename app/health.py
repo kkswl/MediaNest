@@ -43,7 +43,9 @@ def effective_health(db, source, node):
             state = "uncertain"
         cursor = db.scalar(select(Node).where(Node.source_id == source.id,
                                                Node.remote_id == cursor.parent_remote_id))
-    return state if state not in ("unchecked", "") else "healthy"
+    if node.health in ("unchecked", "") and state == "healthy":
+        state = "unchecked"
+    return state or "unchecked"
 
 
 def enqueue_check(db, source, node=None, settings=None, force=False):

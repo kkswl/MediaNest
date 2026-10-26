@@ -1,7 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const address = process.env.MEDIANEST_CONTAINER_URL;
-if (!address) throw new Error("Set MEDIANEST_CONTAINER_URL to the isolated demo container's loopback URL");
+if (!address) throw new Error("Set MEDIANEST_CONTAINER_URL to the explicitly selected container's loopback URL");
 const target = new URL(address);
 if (target.protocol !== "http:" || target.hostname !== "127.0.0.1" || !target.port ||
     target.username || target.password || target.pathname !== "/" || target.search || target.hash) {
@@ -10,7 +10,7 @@ if (target.protocol !== "http:" || target.hostname !== "127.0.0.1" || !target.po
 
 export default defineConfig({
   testDir: "./tests",
-  testMatch: "container-smoke.spec.ts",
+  testMatch: process.env.MEDIANEST_PREVIEW_SMOKE === "1" ? "preview-smoke.spec.ts" : "container-smoke.spec.ts",
   fullyParallel: false,
   workers: 1,
   reporter: "list",

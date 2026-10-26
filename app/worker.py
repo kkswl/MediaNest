@@ -33,8 +33,9 @@ def start_scan(db, source, scan_mode=None):
 
 
 class Worker:
-    def __init__(self, database, settings, readers):
+    def __init__(self, database, settings, readers, *, job_id=None, task_id=None):
         self.database, self.settings, self.readers, self.tmdb = database, settings, readers, TMDB(settings)
+        self.job_id, self.task_id = job_id, task_id
 
     def bounded(self, source, job):
         return ((source.adapter == "live" and self.settings.live_root_only)
@@ -43,11 +44,12 @@ class Worker:
     def claim(self, ignore_schedule=False):
         now = time.time()
         with self.database.session.begin() as db:
-            db.execute(
-                update(Task)
-                .where(Task.status == "running", Task.lease_until < now)
-                .values(status="queued", lease_token="")
-            )
+            expired = update(Task).where(Task.status == "running", Task.lease_until < now)
+            if self.job_id is not None:
+                expired = expired.where(Task.job_id == self.job_id)
+            if self.task_id is not None:
+                expired = expired.where(Task.id == self.task_id)
+            db.execute(expired.values(status="queued", lease_token=""))
             q = (
                 select(Task)
                 .join(Source, Source.id == Task.source_id)
@@ -58,6 +60,10 @@ class Worker:
                     or_(Task.job_id.is_(None), Job.status.in_(["queued", "running"])),
                 )
             )
+            if self.job_id is not None:
+                q = q.where(Task.job_id == self.job_id)
+            if self.task_id is not None:
+                q = q.where(Task.id == self.task_id)
             q = (
                 q.where(Source.adapter == "mock")
                 if ignore_schedule
@@ -159,6 +165,7 @@ class Worker:
                         self.readers,
                         self.tmdb,
                         media_node_id=int(task.target),
+                        local_only=source.adapter == "live" and self.bounded(source, job),
                     )
                     task.status = "done"
                 elif task.kind == "health":
@@ -185,8 +192,17 @@ class Worker:
                 kind = exc.kind if isinstance(exc, ReadError) else "internal"
                 category = "auth_failed" if kind == "auth" else kind
                 task.error = f"{category}: 读取未完成，未判定资源不存在" if isinstance(exc, ReadError) else "internal: 任务执行异常"
+                if kind == "missing":
+                    task.error = "missing: 目录接口明确返回不存在，按连续失败规则复检"
                 source = db.get(Source, task.source_id)
                 access_failure(source, kind)
+                if task.kind == "scan" and isinstance(exc, ReadError):
+                    # Scan errors are health evidence too. A missing directory
+                    # must NOT mark the whole share missing.
+                    node = None if task.target == "0" else db.scalar(select(Node).where(
+                        Node.source_id == source.id, Node.remote_id == task.target))
+                    if task.target == "0" or node is not None:
+                        record_health(db, source, node, kind, "目录扫描未完成（脱敏分类）", self.settings)
                 bounded = self.bounded(source, db.get(Job, jid) if jid else None)
                 limit = 2 if task.kind == "scan" else 1
                 within_budget = not bounded or int(task.payload.get("requests", 0)) < limit
@@ -289,6 +305,8 @@ class Worker:
                     )
         if task.target == "0" and off == 0:
             record_health(db, source, None, "healthy", "分享目录读取成功", self.settings)
+        elif directory_preview and off == 0:
+            record_health(db, source, db.get(Node, job.scope_node_id), "healthy", "指定目录可读取", self.settings)
         nxt = off + len(items)
         p.update(offset=nxt, total=total)
         task.payload = p
@@ -300,10 +318,11 @@ class Worker:
             task.payload = p
             task.status = "done" if nxt >= total or int(p.get("requests", 0)) >= 2 else "queued"
             task.available_at = now + self.settings.interval
-            if task.status == "done" and directory_preview and source.adapter == "mock":
-                # Only synthetic fixtures exercise recognition in a bounded job.
-                db.add(Task(job_id=job.id, source_id=source.id, kind="identify", target=task.target,
-                            dedupe_key=f"job:{job.id}:identify:{task.target}", payload={"cursor": 0}))
+            if task.status == "done" and directory_preview:
+                actual_media = media_nodes(source.id, task.target).where(Node.remote_id.in_(p.get("seen", [])))
+                if db.scalar(actual_media.limit(1)):
+                    db.add(Task(job_id=job.id, source_id=source.id, kind="identify", target=task.target,
+                                dedupe_key=f"job:{job.id}:identify:{task.target}", payload={"cursor": 0}))
             return
         if nxt < total:
             task.status = "queued"
@@ -325,9 +344,12 @@ class Worker:
 
     def discover_media(self, db, task, source):
         cur = int(task.payload.get("cursor", 0))
-        vals = db.scalars(
-            media_nodes(source.id, task.target).where(Node.id > cur).order_by(Node.id).limit(25)
-        ).all()
+        query = media_nodes(source.id, task.target).where(Node.id > cur)
+        job = db.get(Job, task.job_id) if task.job_id else None
+        if job and job.scan_mode == "directory_preview":
+            scan = db.scalar(select(Task).where(Task.job_id == job.id, Task.kind == "scan"))
+            query = query.where(Node.remote_id.in_(scan.payload.get("seen", [])))
+        vals = db.scalars(query.order_by(Node.id).limit(25)).all()
         for n in vals:
             key = f"job:{task.job_id}:identify_media:{n.id}"
             if not db.scalar(select(Task.id).where(Task.dedupe_key == key)):

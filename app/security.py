@@ -5,7 +5,7 @@ import ipaddress
 import re
 import secrets
 import time
-from urllib.parse import parse_qs, urlsplit
+from urllib.parse import parse_qs, urlencode, urlsplit
 
 from cryptography.fernet import Fernet
 from sqlalchemy import update
@@ -38,6 +38,22 @@ def digest(token):
 
 def cipher(secret):
     return Fernet(base64.urlsafe_b64encode(hashlib.sha256(secret.encode()).digest()))
+
+
+def share_link(source):
+    """Build an entry link, never an unverified deep link; keep original URL in DB."""
+    if source.adapter == "mock" or source.code in ("demoa", "demob", "demotv"):
+        return ""
+    try:
+        parsed = urlsplit(safe_url(source.url))
+        if (parsed.hostname not in ("115.com", "115cdn.com")
+                or parsed.path != "/s/" + source.code
+                or not re.fullmatch(r"[A-Za-z0-9]{1,120}", source.code)
+                or not re.fullmatch(r"[A-Za-z0-9]{1,32}", source.access_code or "")):
+            return ""
+        return f"https://{parsed.hostname}/s/{source.code}?" + urlencode({"password": source.access_code})
+    except (ValueError, TypeError):
+        return ""
 
 
 def safe_url(value, image=False, tmdb=False):
